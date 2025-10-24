@@ -64,6 +64,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -82,7 +83,8 @@
             letter-spacing: -0.2px;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--text-primary);
         }
 
@@ -840,6 +842,613 @@
             }
         }
 
+        /* Solutions Section */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .solution-card.highlighted {
+            border-color: var(--primary-purple);
+            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.15);
+        }
+
+        .solution-badge {
+            position: absolute;
+            top: -15px;
+            right: 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .solution-card > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .solution-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .solution-features li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-cta {
+            display: inline-block;
+            color: var(--primary-purple);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: transform 0.3s;
+        }
+
+        .solution-cta:hover {
+            transform: translateX(5px);
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-purple);
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(157, 78, 221, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .price {
+            margin-bottom: 1.5rem;
+        }
+
+        .price .amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price .period {
+            font-size: 1.2rem;
+            color: var(--text-tertiary);
+        }
+
+        .pricing-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 2px solid var(--border-light);
+            color: var(--text-primary);
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .pricing-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-note {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-light);
+        }
+
+        .testimonial-quote {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .author-title {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Research Section */
+        .research-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .research-stat {
+            text-align: center;
+        }
+
+        .research-stat h3 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .research-stat p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .paper-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .paper-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .paper-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .paper-link {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .paper-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Resources/Blog Section */
+        .resources-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .resource-filter {
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            border: 2px solid var(--border-light);
+            background: white;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .resource-filter.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .resource-filter:hover {
+            border-color: var(--primary-purple);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-purple);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .blog-category {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .blog-date {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-link {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .blog-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-story {
+            margin-bottom: 5rem;
+        }
+
+        .about-story h3,
+        .about-values h3,
+        .about-team h3,
+        .about-partners h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .about-story p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-values {
+            margin-bottom: 5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .value-item {
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-item h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .value-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .about-team {
+            margin-bottom: 5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .member-title {
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .member-bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            padding: 1.5rem 3rem;
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .research-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .papers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-logos {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         @media (max-width: 768px) {
             #vrCanvas {
                 height: 400px;
@@ -955,13 +1564,14 @@
 <body>
     <header>
         <nav>
-            <div class="logo">PHRENTECH</div>
+            <a href="index.html" class="logo">PHRENTECH</a>
             <ul class="nav-links">
-                <li><a href="#platform">Platform</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#phrenly">Phrenly AI</a></li>
-                <li><a href="#contact" class="nav-cta">Request Demo</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-cta">Request Demo</a></li>
             </ul>
         </nav>
     </header>
@@ -999,7 +1609,7 @@
         </div>
     </section>
 
-    <section id="platform" class="section">
+    <section id="platform" class="section" style="background: white;">
         <div class="section-header">
             <div class="section-label">Platform Capabilities</div>
             <h2 class="section-title">Redefining the Standard of Care</h2>
@@ -1045,7 +1655,7 @@
         </div>
     </section>
 
-    <section id="experience" class="experience-section">
+    <section id="experience" class="experience-section" style="margin-top: 0;">
         <div class="experience-container">
             <div class="section-header" style="margin-bottom: 4rem;">
                 <div class="section-label">Interactive Experience</div>
@@ -1058,7 +1668,7 @@
                 <div class="therapist-avatar">
                     <div class="avatar-container">
                         <div class="avatar-pulse"></div>
-                        <div class="avatar-icon">👤</div>
+                        <div class="avatar-icon">●</div>
                     </div>
                     <div class="therapist-speech" id="therapistSpeech">
                         <p id="speechText">Welcome. I'm here to guide you through this peaceful space.</p>
@@ -1920,7 +2530,7 @@
         </div>
     </section>
 
-    <section id="technology" class="section">
+    <section id="technology" class="section" style="background: white; border-top: 1px solid var(--border-light);">
         <div class="section-header">
             <div class="section-label">Technology Infrastructure</div>
             <h2 class="section-title">Built for Scale and Security</h2>
@@ -1944,6 +2554,415 @@
                 <div class="feature-number">—</div>
                 <h3>Cross-Platform Compatibility</h3>
                 <p>Support for major VR platforms including Meta Quest, PSVR, and PCVR ecosystems, maximizing accessibility and user choice.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="section" style="background: var(--bg-light); border-top: 1px solid var(--border-light);">
+        <div class="section-header">
+            <div class="section-label">Solutions</div>
+            <h2 class="section-title">Tailored for Every Healthcare Need</h2>
+            <p class="section-description">From individual patients to large healthcare systems, PhrenTech scales to meet your requirements.</p>
+        </div>
+        
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-icon">●</div>
+                <h3>For Individuals</h3>
+                <p>Direct access to licensed therapists and AI support tools from the comfort of your home. Flexible scheduling, private sessions, and continuous care between appointments.</p>
+                <ul class="solution-features">
+                    <li>Unlimited environment access</li>
+                    <li>24/7 Phrenly AI companion</li>
+                    <li>Monthly therapist sessions</li>
+                    <li>Progress tracking & analytics</li>
+                </ul>
+                <a href="#pricing" class="solution-cta">Explore Plans →</a>
+            </div>
+
+            <div class="solution-card highlighted">
+                <div class="solution-badge">Most Popular</div>
+                <div class="solution-icon">+</div>
+                <h3>For Clinics & Practices</h3>
+                <p>Expand your practice with VR therapy capabilities. Offer cutting-edge treatment modalities while reducing overhead and increasing patient capacity.</p>
+                <ul class="solution-features">
+                    <li>Multi-provider dashboard</li>
+                    <li>Patient management system</li>
+                    <li>Billing & insurance integration</li>
+                    <li>Clinical outcome reporting</li>
+                    <li>White-label options available</li>
+                </ul>
+                <a href="#contact" class="solution-cta">Schedule Demo →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">■</div>
+                <h3>For Enterprises</h3>
+                <p>Comprehensive employee mental health programs with scalable VR therapy solutions. Reduce costs while improving workforce wellbeing and productivity.</p>
+                <ul class="solution-features">
+                    <li>Unlimited employee access</li>
+                    <li>Anonymous usage options</li>
+                    <li>Aggregate analytics dashboard</li>
+                    <li>Dedicated account manager</li>
+                    <li>Custom integrations (SSO, HR systems)</li>
+                </ul>
+                <a href="#contact" class="solution-cta">Contact Sales →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">◆</div>
+                <h3>For Healthcare Providers</h3>
+                <p>Join our network of licensed professionals delivering VR-based therapy. Set your own hours, reach more patients, and use state-of-the-art tools.</p>
+                <ul class="solution-features">
+                    <li>Flexible scheduling system</li>
+                    <li>Competitive compensation</li>
+                    <li>Built-in clinical tools</li>
+                    <li>Continuing education credits</li>
+                    <li>Malpractice insurance assistance</li>
+                </ul>
+                <a href="#contact" class="solution-cta">Join Network →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="section-header">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Plans That Scale With You</h2>
+            <p class="section-description">Transparent pricing with no hidden fees. All plans include core platform access and regular updates.</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Essential</h3>
+                <div class="price">
+                    <span class="amount">$79</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="pricing-description">Perfect for individuals seeking accessible mental healthcare</p>
+                <ul class="pricing-features">
+                    <li>✓ Unlimited environment access</li>
+                    <li>✓ Phrenly AI companion (24/7)</li>
+                    <li>✓ 2 therapist sessions/month</li>
+                    <li>✓ Self-help tool library</li>
+                    <li>✓ Mobile app access</li>
+                    <li>✓ Progress tracking</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Professional</h3>
+                <div class="price">
+                    <span class="amount">$149</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="pricing-description">For those requiring more intensive therapeutic support</p>
+                <ul class="pricing-features">
+                    <li>✓ Everything in Essential</li>
+                    <li>✓ 4 therapist sessions/month</li>
+                    <li>✓ Priority scheduling</li>
+                    <li>✓ Advanced analytics</li>
+                    <li>✓ Family sharing (2 accounts)</li>
+                    <li>✓ Custom environment preferences</li>
+                    <li>✓ Dedicated support</li>
+                </ul>
+                <a href="#contact" class="pricing-btn primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Clinic</h3>
+                <div class="price">
+                    <span class="amount">Custom</span>
+                </div>
+                <p class="pricing-description">For practices, clinics, and healthcare organizations</p>
+                <ul class="pricing-features">
+                    <li>✓ Multi-provider access</li>
+                    <li>✓ Patient management system</li>
+                    <li>✓ Billing integration</li>
+                    <li>✓ Clinical reporting</li>
+                    <li>✓ White-label options</li>
+                    <li>✓ HIPAA compliance tools</li>
+                    <li>✓ Dedicated account manager</li>
+                    <li>✓ Custom integrations</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Contact Sales</a>
+            </div>
+        </div>
+
+        <div class="pricing-note">
+            <p><strong>Enterprise Plans Available:</strong> Contact us for custom solutions tailored to large organizations, health systems, and government agencies.</p>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section" style="background: var(--bg-light);">
+        <div class="section-header">
+            <div class="section-label">Success Stories</div>
+            <h2 class="section-title">Transforming Lives Through VR Therapy</h2>
+            <p class="section-description">Hear from patients and providers who have experienced the PhrenTech difference.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"PhrenTech has revolutionized how I deliver therapy. The immersive environments help patients feel safer and more open, leading to breakthrough moments I rarely saw in traditional settings."</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DR</div>
+                    <div class="author-info">
+                        <div class="author-name">Dr. Rachel Morrison</div>
+                        <div class="author-title">Clinical Psychologist, 15+ years</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"As someone with severe anxiety, traditional therapy offices felt overwhelming. PhrenTech allowed me to start my healing journey from home, and the AI companion helped me between sessions when I needed support most."</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <div class="author-name">Sarah M.</div>
+                        <div class="author-title">Patient, Using PhrenTech for 8 months</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"We implemented PhrenTech across our employee wellness program and saw a 40% increase in mental health service utilization. The accessibility and privacy of VR therapy removed barriers that prevented employees from seeking help."</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <div class="author-name">James Chen</div>
+                        <div class="author-title">VP of Human Resources, Tech Company</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="section">
+        <div class="section-header">
+            <div class="section-label">Research & Evidence</div>
+            <h2 class="section-title">Backed by Science</h2>
+            <p class="section-description">Our platform is built on decades of clinical research and validated therapeutic practices.</p>
+        </div>
+        
+        <div class="research-content">
+            <div class="research-stats">
+                <div class="research-stat">
+                    <h3>73%</h3>
+                    <p>Improvement in patient engagement vs. traditional therapy</p>
+                </div>
+                <div class="research-stat">
+                    <h3>2.5x</h3>
+                    <p>Faster symptom reduction in VR-enhanced CBT protocols</p>
+                </div>
+                <div class="research-stat">
+                    <h3>89%</h3>
+                    <p>Patient satisfaction rate across all therapeutic modalities</p>
+                </div>
+            </div>
+
+            <div class="research-papers">
+                <h3 style="margin-bottom: 2rem; text-align: center;">Published Research & Partnerships</h3>
+                <div class="papers-grid">
+                    <div class="paper-card">
+                        <h4>Virtual Reality in Mental Healthcare</h4>
+                        <p>Collaborative study with Stanford Medicine on VR therapy efficacy for anxiety disorders.</p>
+                        <a href="#" class="paper-link">Read Study →</a>
+                    </div>
+                    <div class="paper-card">
+                        <h4>AI-Assisted Therapeutic Interventions</h4>
+                        <p>Research partnership with MIT Media Lab on machine learning applications in therapy.</p>
+                        <a href="#" class="paper-link">Read Study →</a>
+                    </div>
+                    <div class="paper-card">
+                        <h4>Accessibility in Digital Mental Health</h4>
+                        <p>White paper on democratizing access to quality mental healthcare through VR technology.</p>
+                        <a href="#" class="paper-link">Download PDF →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="section" style="background: var(--bg-light);">
+        <div class="section-header">
+            <div class="section-label">Resources</div>
+            <h2 class="section-title">Knowledge Center</h2>
+            <p class="section-description">Expert insights, guides, and the latest developments in VR mental healthcare.</p>
+        </div>
+        
+        <div class="resources-categories">
+            <button class="resource-filter active" data-category="all">All Resources</button>
+            <button class="resource-filter" data-category="blog">Blog</button>
+            <button class="resource-filter" data-category="guides">Guides</button>
+            <button class="resource-filter" data-category="case-studies">Case Studies</button>
+            <button class="resource-filter" data-category="webinars">Webinars</button>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card" data-category="blog">
+                <div class="blog-image" style="background: linear-gradient(135deg, #9D4EDD 0%, #FF8C42 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Research</span>
+                        <span class="blog-date">October 15, 2025</span>
+                    </div>
+                    <h3>The Future of Therapy: How VR is Reshaping Mental Healthcare</h3>
+                    <p>Exploring the intersection of virtual reality technology and evidence-based therapeutic practices, and what it means for the future of mental health treatment.</p>
+                    <a href="#" class="blog-link">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="guides">
+                <div class="blog-image" style="background: linear-gradient(135deg, #4A90E2 0%, #7B68EE 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Guide</span>
+                        <span class="blog-date">October 10, 2025</span>
+                    </div>
+                    <h3>Getting Started with VR Therapy: A Patient's Guide</h3>
+                    <p>Everything you need to know about beginning your VR therapy journey, from equipment setup to what to expect in your first session.</p>
+                    <a href="#" class="blog-link">Read Guide →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="case-studies">
+                <div class="blog-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Case Study</span>
+                        <span class="blog-date">October 5, 2025</span>
+                    </div>
+                    <h3>Healthcare System Reduces Wait Times by 60% with PhrenTech</h3>
+                    <p>How a major metropolitan health system leveraged VR therapy to expand capacity and improve patient outcomes across their mental health division.</p>
+                    <a href="#" class="blog-link">Read Case Study →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="blog">
+                <div class="blog-image" style="background: linear-gradient(135deg, #FF6B9D 0%, #FFA07A 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Industry</span>
+                        <span class="blog-date">September 28, 2025</span>
+                    </div>
+                    <h3>Breaking Down Barriers: Accessibility in Mental Healthcare</h3>
+                    <p>Examining how VR technology is making quality mental healthcare accessible to underserved populations and remote communities.</p>
+                    <a href="#" class="blog-link">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="webinars">
+                <div class="blog-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Webinar</span>
+                        <span class="blog-date">Upcoming: October 30, 2025</span>
+                    </div>
+                    <h3>Live Demo: VR Therapy for Anxiety Disorders</h3>
+                    <p>Join Dr. Sarah Thompson for a live demonstration of exposure therapy techniques in VR environments, with Q&A session for clinicians.</p>
+                    <a href="#" class="blog-link">Register Now →</a>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="guides">
+                <div class="blog-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Clinical Guide</span>
+                        <span class="blog-date">September 20, 2025</span>
+                    </div>
+                    <h3>Integrating VR Therapy into Your Practice: Clinical Guidelines</h3>
+                    <p>Comprehensive guide for mental health professionals on incorporating VR-based interventions into existing treatment protocols.</p>
+                    <a href="#" class="blog-link">Download Guide →</a>
+                </div>
+            </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="#" class="cta-secondary" style="display: inline-block;">View All Resources</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="section-header">
+            <div class="section-label">About PhrenTech</div>
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <p class="section-description">Building the future of accessible, effective mental healthcare through immersive technology.</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-story">
+                <h3>Our Story</h3>
+                <p>PhrenTech was founded in 2023 by a team of clinical psychologists, VR engineers, and AI researchers who saw an opportunity to revolutionize mental healthcare. Witnessing the growing mental health crisis and the barriers preventing people from accessing quality care, we set out to create a platform that would make therapy more accessible, engaging, and effective.</p>
+                <p>Today, PhrenTech serves thousands of patients and partners with hundreds of licensed therapists and healthcare organizations worldwide. Our platform has facilitated over 100,000 therapy sessions and continues to expand the boundaries of what's possible in digital mental healthcare.</p>
+            </div>
+
+            <div class="about-values">
+                <h3>Our Values</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">◉</div>
+                        <h4>Patient-First</h4>
+                        <p>Every decision we make prioritizes patient wellbeing, privacy, and therapeutic outcomes.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">◈</div>
+                        <h4>Evidence-Based</h4>
+                        <p>Our platform is grounded in clinical research and validated therapeutic practices.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">◊</div>
+                        <h4>Accessibility</h4>
+                        <p>We believe quality mental healthcare should be available to everyone, everywhere.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">◇</div>
+                        <h4>Innovation</h4>
+                        <p>We continuously push the boundaries of technology to improve therapeutic experiences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-team">
+                <h3>Leadership Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">JD</div>
+                        <h4>Dr. Jennifer Davis</h4>
+                        <p class="member-title">Co-Founder & CEO</p>
+                        <p class="member-bio">Clinical Psychologist, 15+ years. Former Director of Digital Health at Stanford Medicine.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">MP</div>
+                        <h4>Michael Park</h4>
+                        <p class="member-title">Co-Founder & CTO</p>
+                        <p class="member-bio">VR Engineer, Former Lead at Meta Reality Labs. MIT Computer Science.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">SK</div>
+                        <h4>Dr. Sarah Kim</h4>
+                        <p class="member-title">Chief Clinical Officer</p>
+                        <p class="member-bio">Psychiatrist & AI Researcher. PhD in Computational Psychology from CMU.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">RA</div>
+                        <h4>Robert Anderson</h4>
+                        <p class="member-title">Chief Operations Officer</p>
+                        <p class="member-bio">Healthcare Operations Expert. Former VP at UnitedHealth Group.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-partners">
+                <h3>Partners & Advisors</h3>
+                <p style="text-align: center; margin-bottom: 2rem;">Proud to work with leading institutions advancing mental healthcare</p>
+                <div class="partners-logos">
+                    <div class="partner-logo">Stanford Medicine</div>
+                    <div class="partner-logo">MIT Media Lab</div>
+                    <div class="partner-logo">APA</div>
+                    <div class="partner-logo">NIMH</div>
+                </div>
             </div>
         </div>
     </section>
