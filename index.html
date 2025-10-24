@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhrenTech | Advanced VR Mental Healthcare Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #9D4EDD;
+            --primary-magenta: #C74AA8;
+            --primary-orange: #FF8C42;
+            --gradient-primary: linear-gradient(135deg, #9D4EDD 0%, #C74AA8 50%, #FF8C42 100%);
+            --text-primary: #0a0a0a;
+            --text-secondary: #404040;
+            --text-tertiary: #666666;
+            --bg-light: #fafafa;
+            --border-light: #e8e8e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(157, 78, 221, 0.3);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
+            padding: 10rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(255, 140, 66, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            color: var(--primary-purple);
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -2.5px;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 3.5rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: -0.3px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            letter-spacing: -0.2px;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(157, 78, 221, 0.35);
+        }
+
+        .cta-secondary {
+            color: var(--text-primary);
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--border-light);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            letter-spacing: -0.2px;
+            background: white;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--primary-purple);
+            background: var(--bg-light);
+        }
+
+        .section {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(157, 78, 221, 0.15);
+        }
+
+        .feature-number {
+            font-size: 1rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .feature-card p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .phrenly-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+            padding: 10rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phrenly-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .phrenly-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phrenly-text h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+            line-height: 1.2;
+        }
+
+        .phrenly-text .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .phrenly-text p {
+            font-size: 1.25rem;
+            color: #b8b8b8;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .phrenly-features {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .phrenly-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .phrenly-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: white;
+        }
+
+        .phrenly-feature h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.3px;
+        }
+
+        .phrenly-feature p {
+            font-size: 1.05rem;
+            color: #a0a0a0;
+            line-height: 1.7;
+        }
+
+        .stats-section {
+            background: var(--bg-light);
+            padding: 7rem 2rem;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1.5px;
+        }
+
+        .stat-item p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-brand p {
+            color: #a0a0a0;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d0d0d0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #808080;
+            font-size: 0.95rem;
+        }
+
+        .experience-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 10rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .experience-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vr-demo-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        #vrCanvas {
+            width: 100%;
+            height: 600px;
+            border-radius: 12px;
+            background: #000;
+            cursor: grab;
+            display: block;
+        }
+
+        #vrCanvas:active {
+            cursor: grabbing;
+        }
+
+        .vr-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .vr-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .vr-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(157, 78, 221, 0.4);
+        }
+
+        .vr-icon {
+            font-size: 1.3rem;
+        }
+
+        .environment-selector {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .env-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #b8b8b8;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .env-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(157, 78, 221, 0.5);
+        }
+
+        .env-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .vr-instructions {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .vr-instructions p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vr-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        .vr-instructions strong {
+            color: #d0d0d0;
+            min-width: 80px;
+        }
+
+        .therapist-avatar {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 10;
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .avatar-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .avatar-pulse.speaking {
+            animation: pulse 0.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        .avatar-icon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .therapist-speech {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 20px 20px 20px 5px;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .therapist-speech::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 20px 15px;
+            border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+        }
+
+        .therapist-speech p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .session-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .session-btn:hover {
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .session-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .audio-visualizer {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            height: 40px;
+            flex: 1;
+        }
+
+        .audio-bar {
+            width: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            height: 20%;
+            animation: audioWave 1s infinite ease-in-out;
+        }
+
+        .audio-bar:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .audio-bar:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .audio-bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .audio-bar:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .audio-bar:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes audioWave {
+            0%, 100% {
+                height: 20%;
+            }
+            50% {
+                height: 100%;
+            }
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .therapist-avatar {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .therapist-speech {
+                max-width: 100%;
+                border-radius: 20px;
+            }
+
+            .therapist-speech::before {
+                display: none;
+            }
+
+            .avatar-container {
+                width: 60px;
+                height: 60px;
+            }
+
+            .avatar-icon {
+                font-size: 2rem;
+            }
+
+            .session-controls {
+                flex-direction: column;
+            }
+
+            .audio-visualizer {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #vrCanvas {
+                height: 400px;
+            }
+
+            .vr-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .vr-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .environment-selector {
+                width: 100%;
+            }
+
+            .env-btn {
+                flex: 1;
+                text-align: center;
+            }
+
+            .experience-section {
+                padding: 6rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .phrenly-content {
+                grid-template-columns: 1fr;
+                gap: 5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1.5px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .section {
+                padding: 5rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .phrenly-section {
+                padding: 6rem 1.5rem;
+            }
+
+            .phrenly-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PHRENTECH</div>
+            <ul class="nav-links">
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#phrenly">Phrenly AI</a></li>
+                <li><a href="#contact" class="nav-cta">Request Demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Next-Generation Mental Healthcare</div>
+            <h1>Transforming Therapy<br>Through Virtual Reality</h1>
+            <p class="hero-subtitle">PhrenTech delivers enterprise-grade VR mental healthcare, combining licensed clinical expertise with cutting-edge AI to democratize access and enhance therapeutic outcomes.</p>
+            <div class="cta-group">
+                <a href="#contact" class="cta-primary">Schedule Consultation</a>
+                <a href="#platform" class="cta-secondary">Explore Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Immersive VR Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>AI-Assisted Support</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Therapeutic Modalities</p>
+            </div>
+            <div class="stat-item">
+                <h3>∞</h3>
+                <p>Accessibility Potential</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="platform" class="section">
+        <div class="section-header">
+            <div class="section-label">Platform Capabilities</div>
+            <h2 class="section-title">Redefining the Standard of Care</h2>
+            <p class="section-description">A comprehensive VR ecosystem designed for scalable, evidence-based mental healthcare delivery.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3>Clinical VR Environments</h3>
+                <p>Proprietary therapeutic environments engineered for optimal engagement and clinical efficacy. Each setting is designed in collaboration with mental health professionals.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3>Licensed Provider Network</h3>
+                <p>Direct access to credentialed mental health professionals via secure, HIPAA-compliant VR sessions. Eliminates geographical and accessibility barriers to quality care.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3>Intelligent AI Integration</h3>
+                <p>Proprietary AI provides evidence-based support for lower-acuity needs, ensuring continuity of care between professional sessions while optimizing provider capacity.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">04</div>
+                <h3>Modality Library</h3>
+                <p>Comprehensive suite of therapeutic interventions including CBT, DBT, mindfulness, and exposure therapy protocols, all delivered through immersive VR experiences.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">05</div>
+                <h3>Cross-Generational Platform</h3>
+                <p>Designed for universal accessibility, serving patients from adolescence through older adulthood with age-appropriate interfaces and therapeutic approaches.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">06</div>
+                <h3>Outcome Analytics</h3>
+                <p>Advanced tracking and measurement of therapeutic progress, providing actionable insights for both patients and providers to optimize treatment efficacy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <div class="experience-container">
+            <div class="section-header" style="margin-bottom: 4rem;">
+                <div class="section-label">Interactive Experience</div>
+                <h2 class="section-title" style="color: white;">Experience the Environment</h2>
+                <p class="section-description" style="color: #b8b8b8;">Explore our therapeutic VR space. Use your mouse to look around on desktop, or use your phone's gyroscope for a 360° view. VR headset users can enter full immersive mode.</p>
+            </div>
+
+            <div class="vr-demo-container">
+                <canvas id="vrCanvas"></canvas>
+                <div class="therapist-avatar">
+                    <div class="avatar-container">
+                        <div class="avatar-pulse"></div>
+                        <div class="avatar-icon">👤</div>
+                    </div>
+                    <div class="therapist-speech" id="therapistSpeech">
+                        <p id="speechText">Welcome. I'm here to guide you through this peaceful space.</p>
+                    </div>
+                </div>
+                <div class="vr-controls">
+                    <button id="enterVR" class="vr-button">
+                        <span class="vr-icon">🥽</span>
+                        Enter VR Mode
+                    </button>
+                    <button id="startSession" class="vr-button session-btn">
+                        <span class="vr-icon">🎙️</span>
+                        Start Guided Session
+                    </button>
+                    <div class="environment-selector">
+                        <button class="env-btn active" data-env="zen">Zen Garden</button>
+                        <button class="env-btn" data-env="beach">Beach Sunset</button>
+                        <button class="env-btn" data-env="forest">Forest Retreat</button>
+                    </div>
+                </div>
+                <div class="session-controls" id="sessionControls" style="display: none;">
+                    <div class="audio-visualizer">
+                        <div class="audio-bar"></div>
+                        <div class="audio-bar"></div>
+                        <div class="audio-bar"></div>
+                        <div class="audio-bar"></div>
+                        <div class="audio-bar"></div>
+                    </div>
+                    <button id="pauseSession" class="control-btn">⏸️ Pause</button>
+                    <button id="stopSession" class="control-btn">⏹️ Stop</button>
+                </div>
+                <div class="vr-instructions">
+                    <p><strong>Desktop:</strong> Click and drag to look around</p>
+                    <p><strong>Mobile:</strong> Move your device to explore</p>
+                    <p><strong>VR Headset:</strong> Click "Enter VR Mode"</p>
+                    <p><strong>Therapy Mode:</strong> Click "Start Guided Session" to hear your AI therapist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // WebXR/VR Experience
+        let scene, camera, renderer, sphere, therapistModel;
+        let isUserInteracting = false;
+        let onPointerDownMouseX = 0, onPointerDownMouseY = 0;
+        let lon = 0, onPointerDownLon = 0;
+        let lat = 0, onPointerDownLat = 0;
+        let phi = 0, theta = 0;
+        let sessionActive = false;
+        let sessionPaused = false;
+        let currentDialogueIndex = 0;
+        let dialogueTimeout;
+        let speechSynthesis = window.speechSynthesis;
+        let currentUtterance = null;
+
+        const environments = {
+            zen: {
+                color: 0x8B7355,
+                ambientColor: 0xE8D4C0,
+                name: 'Zen Garden',
+                textureType: 'procedural',
+                // To use real 360° image, add: imageUrl: 'path/to/zen-garden-360.jpg'
+                dialogue: [
+                    "Welcome to the Zen Garden. Take a moment to notice your surroundings.",
+                    "In this space, we focus on mindfulness and being present in the moment.",
+                    "Take a deep breath in... hold for three seconds... and slowly release.",
+                    "Notice how the tranquil environment helps calm your thoughts.",
+                    "As you breathe, imagine any tension leaving your body with each exhale.",
+                    "This is your safe space. Here, you can express yourself freely without judgment.",
+                    "What thoughts or feelings are coming up for you right now?",
+                    "Remember, it's okay to simply exist in this peaceful moment."
+                ]
+            },
+            beach: {
+                color: 0x87CEEB,
+                ambientColor: 0xFFB347,
+                name: 'Beach Sunset',
+                textureType: 'procedural',
+                // Example: imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2048'
+                dialogue: [
+                    "Welcome to the Beach Sunset. Feel the warmth and peace of this environment.",
+                    "Imagine the gentle sound of waves touching the shore, creating a natural rhythm.",
+                    "Let's practice grounding. Notice five things you can see in this space.",
+                    "The sunset reminds us that endings can be beautiful, and tomorrow brings new beginnings.",
+                    "Breathe in the calm energy of this place. Feel it filling your entire being.",
+                    "This is a space where you can let go of what no longer serves you.",
+                    "What would you like to release into the ocean today?",
+                    "You're doing wonderfully. Take your time here."
+                ]
+            },
+            forest: {
+                color: 0x228B22,
+                ambientColor: 0x90EE90,
+                name: 'Forest Retreat',
+                textureType: 'procedural',
+                // Example: imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=2048'
+                dialogue: [
+                    "Welcome to the Forest Retreat. This is a place of growth and renewal.",
+                    "Like the trees around us, you too are constantly growing and evolving.",
+                    "Take a moment to connect with the natural energy of this space.",
+                    "With each breath, imagine drawing in the fresh, healing energy of the forest.",
+                    "The forest teaches us patience. Growth takes time, and that's perfectly okay.",
+                    "You are exactly where you need to be on your journey.",
+                    "What insights or realizations are coming to you in this moment?",
+                    "Trust in your own process of healing and growth."
+                ]
+            }
+        };
+
+        let currentEnvironment = 'zen';
+
+        function initVRExperience() {
+            const container = document.getElementById('vrCanvas');
+            
+            // Scene setup
+            scene = new THREE.Scene();
+            
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 1, 1100);
+            camera.target = new THREE.Vector3(0, 0, 0);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.xr.enabled = true;
+
+            // Create 360 sphere with realistic textures
+            createRealisticEnvironment(currentEnvironment);
+
+            // Add therapist avatar in 3D space
+            createRealisticTherapistAvatar();
+
+            // Add ambient elements
+            createAmbientElements();
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
+            directionalLight.position.set(5, 10, 5);
+            scene.add(directionalLight);
+
+            // Event listeners
+            container.addEventListener('pointerdown', onPointerDown);
+            container.addEventListener('pointermove', onPointerMove);
+            container.addEventListener('pointerup', onPointerUp);
+            window.addEventListener('resize', onWindowResize);
+
+            // Device orientation for mobile
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', onDeviceOrientation);
+            }
+
+            // VR Button
+            document.getElementById('enterVR').addEventListener('click', () => {
+                if (renderer.xr.isPresenting) {
+                    renderer.xr.getSession().end();
+                } else {
+                    navigator.xr?.requestSession('immersive-vr').then((session) => {
+                        renderer.xr.setSession(session);
+                    }).catch(() => {
+                        alert('VR not available. Please use a VR-enabled browser or device.');
+                    });
+                }
+            });
+
+            // Session controls
+            document.getElementById('startSession').addEventListener('click', startTherapySession);
+            document.getElementById('pauseSession').addEventListener('click', pauseTherapySession);
+            document.getElementById('stopSession').addEventListener('click', stopTherapySession);
+
+            // Environment selector
+            document.querySelectorAll('.env-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.env-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    changeEnvironment(e.target.dataset.env);
+                });
+            });
+
+            animate();
+        }
+
+        function createRealisticEnvironment(env) {
+            // Remove old sphere if it exists
+            if (sphere) {
+                scene.remove(sphere);
+                sphere.geometry.dispose();
+                sphere.material.dispose();
+            }
+
+            const geometry = new THREE.SphereGeometry(500, 60, 40);
+            geometry.scale(-1, 1, 1);
+
+            const envData = environments[env];
+            
+            // Check if we have a real 360° image URL
+            if (envData.imageUrl) {
+                const textureLoader = new THREE.TextureLoader();
+                textureLoader.load(
+                    envData.imageUrl,
+                    (texture) => {
+                        const material = new THREE.MeshBasicMaterial({ map: texture });
+                        sphere = new THREE.Mesh(geometry, material);
+                        scene.add(sphere);
+                    },
+                    undefined,
+                    (error) => {
+                        console.log('Error loading 360° image, using procedural texture', error);
+                        createProceduralTexture(env, geometry);
+                    }
+                );
+            } else {
+                // Use procedural texture
+                createProceduralTexture(env, geometry);
+            }
+        }
+
+        function createProceduralTexture(env, geometry) {
+            // Create procedural realistic textures
+            const canvas = document.createElement('canvas');
+            canvas.width = 2048;
+            canvas.height = 1024;
+            const ctx = canvas.getContext('2d');
+
+            if (env === 'zen') {
+                // Zen garden with sand, stones, and subtle patterns
+                const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                gradient.addColorStop(0, '#D4C4B0');
+                gradient.addColorStop(0.3, '#C9B8A0');
+                gradient.addColorStop(0.7, '#B8A890');
+                gradient.addColorStop(1, '#A89880');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Add zen garden patterns
+                ctx.strokeStyle = 'rgba(139, 115, 85, 0.15)';
+                ctx.lineWidth = 2;
+                for (let i = 0; i < 50; i++) {
+                    ctx.beginPath();
+                    const y = Math.random() * canvas.height;
+                    ctx.moveTo(0, y);
+                    for (let x = 0; x < canvas.width; x += 20) {
+                        ctx.lineTo(x, y + Math.sin(x * 0.01) * 10);
+                    }
+                    ctx.stroke();
+                }
+
+                // Add stones/rocks
+                ctx.fillStyle = 'rgba(90, 75, 60, 0.3)';
+                for (let i = 0; i < 30; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = canvas.height * 0.6 + Math.random() * canvas.height * 0.3;
+                    const size = 20 + Math.random() * 40;
+                    ctx.beginPath();
+                    ctx.ellipse(x, y, size, size * 0.7, Math.random() * Math.PI, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Add bamboo silhouettes
+                ctx.strokeStyle = 'rgba(60, 90, 50, 0.2)';
+                ctx.lineWidth = 8;
+                for (let i = 0; i < 15; i++) {
+                    const x = Math.random() * canvas.width;
+                    ctx.beginPath();
+                    ctx.moveTo(x, canvas.height);
+                    ctx.lineTo(x, canvas.height * 0.3 + Math.random() * canvas.height * 0.3);
+                    ctx.stroke();
+                }
+
+            } else if (env === 'beach') {
+                // Beach sunset with ocean and sky
+                const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height * 0.6);
+                skyGradient.addColorStop(0, '#FF6B9D');
+                skyGradient.addColorStop(0.3, '#FFA07A');
+                skyGradient.addColorStop(0.6, '#FFD700');
+                skyGradient.addColorStop(1, '#87CEEB');
+                ctx.fillStyle = skyGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height * 0.6);
+
+                // Ocean
+                const oceanGradient = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height);
+                oceanGradient.addColorStop(0, '#4A90E2');
+                oceanGradient.addColorStop(0.5, '#357ABD');
+                oceanGradient.addColorStop(1, '#2C5F8D');
+                ctx.fillStyle = oceanGradient;
+                ctx.fillRect(0, canvas.height * 0.6, canvas.width, canvas.height * 0.4);
+
+                // Sun
+                const sunGradient = ctx.createRadialGradient(canvas.width * 0.5, canvas.height * 0.5, 0, canvas.width * 0.5, canvas.height * 0.5, 150);
+                sunGradient.addColorStop(0, '#FFF4E6');
+                sunGradient.addColorStop(0.5, '#FFD700');
+                sunGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+                ctx.fillStyle = sunGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Waves
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.lineWidth = 3;
+                for (let i = 0; i < 10; i++) {
+                    ctx.beginPath();
+                    const y = canvas.height * 0.6 + i * 30;
+                    ctx.moveTo(0, y);
+                    for (let x = 0; x < canvas.width; x += 30) {
+                        ctx.lineTo(x, y + Math.sin(x * 0.02 + i) * 8);
+                    }
+                    ctx.stroke();
+                }
+
+                // Palm tree silhouettes
+                ctx.fillStyle = 'rgba(40, 40, 40, 0.4)';
+                for (let i = 0; i < 3; i++) {
+                    const x = 100 + i * 700;
+                    // Trunk
+                    ctx.fillRect(x, canvas.height * 0.5, 15, canvas.height * 0.5);
+                    // Leaves
+                    ctx.beginPath();
+                    for (let j = 0; j < 8; j++) {
+                        const angle = (j / 8) * Math.PI * 2;
+                        ctx.moveTo(x + 7, canvas.height * 0.5);
+                        ctx.lineTo(x + 7 + Math.cos(angle) * 80, canvas.height * 0.5 + Math.sin(angle) * 80);
+                    }
+                    ctx.stroke();
+                }
+
+            } else if (env === 'forest') {
+                // Forest with trees and foliage
+                const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height * 0.4);
+                skyGradient.addColorStop(0, '#87CEEB');
+                skyGradient.addColorStop(1, '#98D8C8');
+                ctx.fillStyle = skyGradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height * 0.4);
+
+                // Forest background
+                const forestGradient = ctx.createLinearGradient(0, canvas.height * 0.4, 0, canvas.height);
+                forestGradient.addColorStop(0, '#5C8A5C');
+                forestGradient.addColorStop(0.5, '#4A7C4A');
+                forestGradient.addColorStop(1, '#3D6B3D');
+                ctx.fillStyle = forestGradient;
+                ctx.fillRect(0, canvas.height * 0.4, canvas.width, canvas.height * 0.6);
+
+                // Tree trunks
+                ctx.fillStyle = 'rgba(80, 60, 40, 0.6)';
+                for (let i = 0; i < 20; i++) {
+                    const x = (i / 20) * canvas.width;
+                    const width = 30 + Math.random() * 40;
+                    const height = canvas.height * 0.6 + Math.random() * 100;
+                    ctx.fillRect(x, canvas.height - height, width, height);
+                }
+
+                // Foliage/canopy
+                ctx.fillStyle = 'rgba(60, 120, 60, 0.5)';
+                for (let i = 0; i < 40; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = canvas.height * 0.3 + Math.random() * canvas.height * 0.3;
+                    const size = 40 + Math.random() * 80;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Lighter foliage for depth
+                ctx.fillStyle = 'rgba(100, 160, 100, 0.4)';
+                for (let i = 0; i < 30; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = canvas.height * 0.2 + Math.random() * canvas.height * 0.3;
+                    const size = 50 + Math.random() * 100;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Ground vegetation
+                ctx.fillStyle = 'rgba(80, 140, 80, 0.3)';
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = canvas.height * 0.7 + Math.random() * canvas.height * 0.3;
+                    ctx.fillRect(x, y, 5 + Math.random() * 10, 20 + Math.random() * 40);
+                }
+            }
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+
+            sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+        }
+
+        function createRealisticTherapistAvatar() {
+            const avatarGroup = new THREE.Group();
+
+            // More realistic proportions and details
+            
+            // Legs
+            const legGeometry = new THREE.CylinderGeometry(0.4, 0.5, 4, 8);
+            const legMaterial = new THREE.MeshPhongMaterial({ color: 0x4A5568 }); // Dark pants
+            
+            const leftLeg = new THREE.Mesh(legGeometry, legMaterial);
+            leftLeg.position.set(-0.6, -4, 0);
+            avatarGroup.add(leftLeg);
+            
+            const rightLeg = new THREE.Mesh(legGeometry, legMaterial);
+            rightLeg.position.set(0.6, -4, 0);
+            avatarGroup.add(rightLeg);
+
+            // Torso - more natural shape
+            const torsoGeometry = new THREE.CylinderGeometry(1.2, 1.5, 4, 12);
+            const torsoMaterial = new THREE.MeshPhongMaterial({ color: 0x6B7AA1 }); // Professional blouse
+            const torso = new THREE.Mesh(torsoGeometry, torsoMaterial);
+            torso.position.y = -0.5;
+            avatarGroup.add(torso);
+
+            // Arms
+            const armGeometry = new THREE.CylinderGeometry(0.3, 0.35, 3.5, 8);
+            const skinMaterial = new THREE.MeshPhongMaterial({ color: 0xFFDBAC });
+            
+            const leftArm = new THREE.Mesh(armGeometry, torsoMaterial);
+            leftArm.position.set(-1.6, -0.5, 0);
+            leftArm.rotation.z = 0.3;
+            avatarGroup.add(leftArm);
+            
+            const rightArm = new THREE.Mesh(armGeometry, torsoMaterial);
+            rightArm.position.set(1.6, -0.5, 0);
+            rightArm.rotation.z = -0.3;
+            avatarGroup.add(rightArm);
+
+            // Hands
+            const handGeometry = new THREE.SphereGeometry(0.35, 8, 8);
+            
+            const leftHand = new THREE.Mesh(handGeometry, skinMaterial);
+            leftHand.position.set(-1.8, -2.3, 0.3);
+            avatarGroup.add(leftHand);
+            
+            const rightHand = new THREE.Mesh(handGeometry, skinMaterial);
+            rightHand.position.set(1.8, -2.3, 0.3);
+            avatarGroup.add(rightHand);
+
+            // Neck
+            const neckGeometry = new THREE.CylinderGeometry(0.4, 0.5, 0.8, 8);
+            const neck = new THREE.Mesh(neckGeometry, skinMaterial);
+            neck.position.y = 2;
+            avatarGroup.add(neck);
+
+            // Head - more realistic
+            const headGeometry = new THREE.SphereGeometry(1.2, 16, 16);
+            const head = new THREE.Mesh(headGeometry, skinMaterial);
+            head.position.y = 3.2;
+            head.scale.set(1, 1.1, 0.95); // Slightly elongated
+            avatarGroup.add(head);
+
+            // Hair
+            const hairGeometry = new THREE.SphereGeometry(1.25, 16, 16);
+            const hairMaterial = new THREE.MeshPhongMaterial({ color: 0x3D2817 }); // Brown hair
+            const hair = new THREE.Mesh(hairGeometry, hairMaterial);
+            hair.position.y = 3.6;
+            hair.scale.set(1, 0.8, 1);
+            avatarGroup.add(hair);
+
+            // Eyes - more detailed
+            const eyeGeometry = new THREE.SphereGeometry(0.15, 12, 12);
+            const eyeWhiteMaterial = new THREE.MeshPhongMaterial({ color: 0xFFFFFF });
+            const irisMaterial = new THREE.MeshPhongMaterial({ color: 0x4A90E2 }); // Blue eyes
+            
+            // Left eye white
+            const leftEyeWhite = new THREE.Mesh(eyeGeometry, eyeWhiteMaterial);
+            leftEyeWhite.position.set(-0.4, 3.3, 1.05);
+            avatarGroup.add(leftEyeWhite);
+            
+            // Left iris
+            const leftIris = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), irisMaterial);
+            leftIris.position.set(-0.4, 3.3, 1.15);
+            avatarGroup.add(leftIris);
+            
+            // Right eye white
+            const rightEyeWhite = new THREE.Mesh(eyeGeometry, eyeWhiteMaterial);
+            rightEyeWhite.position.set(0.4, 3.3, 1.05);
+            avatarGroup.add(rightEyeWhite);
+            
+            // Right iris
+            const rightIris = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 12), irisMaterial);
+            rightIris.position.set(0.4, 3.3, 1.15);
+            avatarGroup.add(rightIris);
+
+            // Mouth
+            const mouthGeometry = new THREE.TorusGeometry(0.25, 0.05, 8, 16, Math.PI);
+            const mouthMaterial = new THREE.MeshPhongMaterial({ color: 0xC97B84 });
+            const mouth = new THREE.Mesh(mouthGeometry, mouthMaterial);
+            mouth.position.set(0, 2.7, 1.05);
+            mouth.rotation.x = Math.PI;
+            avatarGroup.add(mouth);
+
+            // Nose
+            const noseGeometry = new THREE.ConeGeometry(0.15, 0.4, 8);
+            const nose = new THREE.Mesh(noseGeometry, skinMaterial);
+            nose.position.set(0, 3, 1.1);
+            nose.rotation.x = Math.PI / 2;
+            avatarGroup.add(nose);
+
+            // Position the avatar directly in front of user, very visible
+            avatarGroup.position.set(0, -3, -15); // Centered, closer, at eye level
+            avatarGroup.rotation.y = 0; // Facing user directly
+            
+            // Scale up for better visibility
+            avatarGroup.scale.set(1.5, 1.5, 1.5);
+            
+            // Store references for animation
+            avatarGroup.userData = {
+                torso: torso,
+                head: head,
+                leftArm: leftArm,
+                rightArm: rightArm,
+                mouth: mouth,
+                originalY: avatarGroup.position.y,
+                originalRotation: avatarGroup.rotation.y
+            };
+
+            therapistModel = avatarGroup;
+            scene.add(avatarGroup);
+
+            // Add a spotlight on the therapist
+            const spotlight = new THREE.SpotLight(0xffffff, 1.2);
+            spotlight.position.set(0, 10, -10);
+            spotlight.target = avatarGroup;
+            spotlight.angle = Math.PI / 4;
+            spotlight.penumbra = 0.2;
+            scene.add(spotlight);
+
+            // Ambient light near therapist
+            const therapistLight = new THREE.PointLight(0x9D4EDD, 0.5, 30);
+            therapistLight.position.set(0, 0, -15);
+            scene.add(therapistLight);
+        }
+
+        function animateTherapistSpeaking(speaking) {
+            if (!therapistModel) return;
+            
+            const pulse = document.querySelector('.avatar-pulse');
+            if (speaking) {
+                pulse.classList.add('speaking');
+                therapistModel.userData.animateSpeaking = true;
+            } else {
+                pulse.classList.remove('speaking');
+                therapistModel.userData.animateSpeaking = false;
+                therapistModel.position.y = therapistModel.userData.originalY;
+                if (therapistModel.userData.mouth) {
+                    therapistModel.userData.mouth.scale.set(1, 1, 1);
+                }
+            }
+        }
+
+        function startTherapySession() {
+            sessionActive = true;
+            sessionPaused = false;
+            currentDialogueIndex = 0;
+            
+            document.getElementById('startSession').style.display = 'none';
+            document.getElementById('sessionControls').style.display = 'flex';
+            
+            speakDialogue();
+        }
+
+        function pauseTherapySession() {
+            if (sessionPaused) {
+                sessionPaused = false;
+                document.getElementById('pauseSession').textContent = '⏸️ Pause';
+                if (speechSynthesis.paused) {
+                    speechSynthesis.resume();
+                } else {
+                    speakDialogue();
+                }
+            } else {
+                sessionPaused = true;
+                document.getElementById('pauseSession').textContent = '▶️ Resume';
+                if (speechSynthesis.speaking) {
+                    speechSynthesis.pause();
+                }
+                clearTimeout(dialogueTimeout);
+                animateTherapistSpeaking(false);
+            }
+        }
+
+        function stopTherapySession() {
+            sessionActive = false;
+            sessionPaused = false;
+            currentDialogueIndex = 0;
+            
+            speechSynthesis.cancel();
+            clearTimeout(dialogueTimeout);
+            
+            document.getElementById('startSession').style.display = 'flex';
+            document.getElementById('sessionControls').style.display = 'none';
+            document.getElementById('pauseSession').textContent = '⏸️ Pause';
+            
+            document.getElementById('speechText').textContent = 
+                "Welcome. I'm here to guide you through this peaceful space.";
+            
+            animateTherapistSpeaking(false);
+        }
+
+        function speakDialogue() {
+            if (!sessionActive || sessionPaused) return;
+            
+            const dialogue = environments[currentEnvironment].dialogue;
+            
+            if (currentDialogueIndex >= dialogue.length) {
+                setTimeout(() => {
+                    document.getElementById('speechText').textContent = 
+                        "That was wonderful work today. Take your time here, and when you're ready, we can explore more.";
+                    stopTherapySession();
+                }, 2000);
+                return;
+            }
+            
+            const text = dialogue[currentDialogueIndex];
+            document.getElementById('speechText').textContent = text;
+            
+            // Enhanced text-to-speech with natural voice settings
+            if (speechSynthesis) {
+                currentUtterance = new SpeechSynthesisUtterance(text);
+                
+                // More natural speech parameters
+                currentUtterance.rate = 0.9; // Slightly slower, more therapeutic pace
+                currentUtterance.pitch = 1.1; // Slightly higher, warmer pitch
+                currentUtterance.volume = 1;
+                
+                // Wait for voices to load and select best one
+                let voices = speechSynthesis.getVoices();
+                
+                // Prefer natural, high-quality voices
+                const preferredVoice = voices.find(voice => 
+                    (voice.name.includes('Google') && voice.name.includes('Female')) ||
+                    voice.name.includes('Natural') ||
+                    voice.name.includes('Premium') ||
+                    voice.name.includes('Samantha') ||
+                    voice.name.includes('Karen') ||
+                    voice.name.includes('Victoria') ||
+                    voice.name.includes('Allison')
+                );
+                
+                // Fallback to any female English voice
+                const femaleVoice = voices.find(voice => 
+                    voice.lang.startsWith('en') && 
+                    (voice.name.includes('Female') || voice.name.includes('Woman'))
+                );
+                
+                if (preferredVoice) {
+                    currentUtterance.voice = preferredVoice;
+                } else if (femaleVoice) {
+                    currentUtterance.voice = femaleVoice;
+                } else if (voices.length > 0) {
+                    // Use first English voice as last resort
+                    currentUtterance.voice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+                }
+                
+                currentUtterance.onstart = () => {
+                    animateTherapistSpeaking(true);
+                };
+                
+                currentUtterance.onend = () => {
+                    animateTherapistSpeaking(false);
+                    currentDialogueIndex++;
+                    
+                    // Natural pause between sentences (3.5 seconds)
+                    dialogueTimeout = setTimeout(() => {
+                        if (sessionActive && !sessionPaused) {
+                            speakDialogue();
+                        }
+                    }, 3500);
+                };
+                
+                currentUtterance.onerror = (event) => {
+                    console.log('Speech error:', event);
+                    animateTherapistSpeaking(false);
+                };
+                
+                speechSynthesis.speak(currentUtterance);
+            }
+        }
+
+        function createAmbientElements() {
+            // More subtle, realistic particles
+            const particleGeometry = new THREE.BufferGeometry();
+            const particleCount = 500;
+            const positions = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 800;
+            }
+
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0xffffff,
+                size: 1.5,
+                transparent: true,
+                opacity: 0.4
+            });
+
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+
+            function animateParticles() {
+                const positions = particles.geometry.attributes.position.array;
+                for (let i = 1; i < positions.length; i += 3) {
+                    positions[i] -= 0.05;
+                    if (positions[i] < -400) positions[i] = 400;
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+            }
+
+            particles.userData.animate = animateParticles;
+        }
+
+        function changeEnvironment(env) {
+            currentEnvironment = env;
+            createRealisticEnvironment(env);
+            
+            if (sessionActive) {
+                stopTherapySession();
+            }
+        }
+
+        function onPointerDown(event) {
+            isUserInteracting = true;
+            onPointerDownMouseX = event.clientX;
+            onPointerDownMouseY = event.clientY;
+            onPointerDownLon = lon;
+            onPointerDownLat = lat;
+        }
+
+        function onPointerMove(event) {
+            if (isUserInteracting) {
+                lon = (onPointerDownMouseX - event.clientX) * 0.1 + onPointerDownLon;
+                lat = (event.clientY - onPointerDownMouseY) * 0.1 + onPointerDownLat;
+            }
+        }
+
+        function onPointerUp() {
+            isUserInteracting = false;
+        }
+
+        function onDeviceOrientation(event) {
+            if (event.alpha !== null && event.beta !== null && event.gamma !== null) {
+                lon = event.alpha;
+                lat = event.beta - 90;
+            }
+        }
+
+        function onWindowResize() {
+            const container = document.getElementById('vrCanvas');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Animate particles
+            scene.children.forEach(child => {
+                if (child.userData.animate) {
+                    child.userData.animate();
+                }
+            });
+
+            // Enhanced therapist animation when speaking
+            if (therapistModel && therapistModel.userData.animateSpeaking) {
+                const time = Date.now() * 0.002;
+                
+                // Gentle breathing motion
+                therapistModel.position.y = therapistModel.userData.originalY + Math.sin(time) * 0.2;
+                
+                // Head movements
+                therapistModel.userData.head.rotation.x = Math.sin(time * 1.2) * 0.04;
+                therapistModel.userData.head.rotation.y = Math.sin(time * 0.8) * 0.06;
+                
+                // Subtle arm gestures
+                therapistModel.userData.leftArm.rotation.z = 0.3 + Math.sin(time * 1.5) * 0.1;
+                therapistModel.userData.rightArm.rotation.z = -0.3 - Math.sin(time * 1.5) * 0.1;
+                
+                // Mouth animation (subtle talking motion)
+                const mouthScale = 1 + Math.sin(time * 8) * 0.15;
+                therapistModel.userData.mouth.scale.set(mouthScale, 1, 1);
+            }
+
+            lat = Math.max(-85, Math.min(85, lat));
+            phi = THREE.MathUtils.degToRad(90 - lat);
+            theta = THREE.MathUtils.degToRad(lon);
+
+            camera.target.x = 500 * Math.sin(phi) * Math.cos(theta);
+            camera.target.y = 500 * Math.cos(phi);
+            camera.target.z = 500 * Math.sin(phi) * Math.sin(theta);
+
+            camera.lookAt(camera.target);
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVRExperience);
+        } else {
+            initVRExperience();
+        }
+
+        // Load voices for text-to-speech
+        if (speechSynthesis) {
+            // Ensure voices are loaded
+            speechSynthesis.onvoiceschanged = () => {
+                speechSynthesis.getVoices();
+            };
+            
+            // Also try to load immediately
+            if (speechSynthesis.getVoices().length === 0) {
+                setTimeout(() => {
+                    speechSynthesis.getVoices();
+                }, 100);
+            }
+        }
+    </script>
+
+    <section id="phrenly" class="phrenly-section">
+        <div class="phrenly-content">
+            <div class="phrenly-text">
+                <h2>Introducing <span class="gradient-text">Phrenly AI</span></h2>
+                <p>An intelligent companion application that extends PhrenTech's capabilities beyond the VR environment, delivering on-demand mental health support through your mobile device.</p>
+                <a href="#contact" class="cta-primary">Learn More</a>
+            </div>
+            
+            <div class="phrenly-features">
+                <div class="phrenly-feature">
+                    <div class="phrenly-icon">01</div>
+                    <div>
+                        <h4>Mobile-Native Architecture</h4>
+                        <p>Access sophisticated AI-powered therapeutic support without VR hardware requirements, ensuring care continuity across all contexts.</p>
+                    </div>
+                </div>
+                
+                <div class="phrenly-feature">
+                    <div class="phrenly-icon">02</div>
+                    <div>
+                        <h4>Real-Time Intervention</h4>
+                        <p>Immediate access to evidence-based coping strategies and support during critical moments, bridging gaps between scheduled sessions.</p>
+                    </div>
+                </div>
+                
+                <div class="phrenly-feature">
+                    <div class="phrenly-icon">03</div>
+                    <div>
+                        <h4>Ecosystem Integration</h4>
+                        <p>Seamless synchronization with your PhrenTech VR sessions, creating a unified therapeutic experience across platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="section">
+        <div class="section-header">
+            <div class="section-label">Technology Infrastructure</div>
+            <h2 class="section-title">Built for Scale and Security</h2>
+            <p class="section-description">Enterprise-grade architecture ensuring reliability, compliance, and exceptional user experiences.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">—</div>
+                <h3>HIPAA Compliance</h3>
+                <p>Full compliance with healthcare data protection standards, ensuring patient privacy and data security at every touchpoint.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">—</div>
+                <h3>Cloud Infrastructure</h3>
+                <p>Scalable, redundant architecture supporting thousands of concurrent sessions with sub-50ms latency for optimal presence.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">—</div>
+                <h3>Cross-Platform Compatibility</h3>
+                <p>Support for major VR platforms including Meta Quest, PSVR, and PCVR ecosystems, maximizing accessibility and user choice.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="background: var(--bg-light); padding: 8rem 2rem; margin-top: 4rem;">
+        <div class="section-header">
+            <h2 class="section-title">Ready to Transform Mental Healthcare?</h2>
+            <p class="section-description">Join us in building the future of accessible, effective mental health treatment.</p>
+            <div style="margin-top: 3rem;">
+                <a href="#" class="cta-primary" style="margin-right: 1rem;">Schedule Demo</a>
+                <a href="#" class="cta-secondary">Investment Inquiry</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>PHRENTECH</h3>
+                <p>Pioneering the convergence of virtual reality and mental healthcare to create accessible, effective therapeutic experiences for everyone.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#">VR Therapy</a></li>
+                    <li><a href="#">Phrenly AI</a></li>
+                    <li><a href="#">Provider Network</a></li>
+                    <li><a href="#">For Clinics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 PhrenTech. All rights reserved. | Advancing mental healthcare through immersive technology.</p>
+        </div>
+    </footer>
+</body>
+</html>
