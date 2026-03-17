@@ -223,6 +223,50 @@
   .footer-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--ntext2); }
 
+  /* ── LEAD CAPTURE MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(15,31,61,0.7); align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: #fff; border-radius: 20px; padding: 48px 44px;
+    max-width: 460px; width: 90%; position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 20px; background: none;
+    border: none; font-size: 22px; cursor: pointer; color: #8A9AAA; line-height: 1;
+  }
+  .modal-close:hover { color: #1A2A4A; }
+  .modal-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #E86A3A; margin-bottom: 10px;
+  }
+  .modal-title { font-size: 22px; font-weight: 700; color: #1A2A4A; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .modal-sub { font-size: 14px; color: #556688; margin-bottom: 28px; line-height: 1.6; }
+  .modal-field { margin-bottom: 16px; }
+  .modal-field label { display: block; font-size: 12px; font-weight: 600; color: #1A2A4A; margin-bottom: 6px; }
+  .modal-field input {
+    width: 100%; padding: 12px 16px; border: 1.5px solid #D4DAE8;
+    border-radius: 10px; font-size: 14px; font-family: inherit;
+    color: #1A2A4A; outline: none; transition: border-color 0.2s;
+  }
+  .modal-field input:focus { border-color: #E86A3A; }
+  .modal-submit {
+    width: 100%; padding: 14px; background: #E86A3A; color: #fff;
+    border: none; border-radius: 100px; font-size: 15px; font-weight: 700;
+    font-family: inherit; cursor: pointer; margin-top: 8px; transition: opacity 0.2s;
+  }
+  .modal-submit:hover { opacity: 0.88; }
+  .modal-note { font-size: 11px; color: #8A9AAA; text-align: center; margin-top: 14px; }
+  .modal-success { display: none; text-align: center; padding: 20px 0; }
+  .modal-success.active { display: block; }
+  .modal-success-icon { font-size: 48px; margin-bottom: 16px; }
+  .modal-success-title { font-size: 20px; font-weight: 700; color: #1A2A4A; margin-bottom: 8px; }
+  .modal-success-sub { font-size: 14px; color: #556688; line-height: 1.6; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .pt-nav { padding: 14px 20px; }
@@ -295,7 +339,7 @@
     <h1>Investing in the future of mental healthcare.</h1>
     <p>PhrenTech is seeking $500K in seed funding to scale Phrenly and build the next generation of VR therapy. We are building the infrastructure for accessible, evidence-based mental health support — starting with AI, evolving into immersive VR.</p>
     <div class="pt-hero-btns">
-      <a href="#deck" class="btn-light">Download Pitch Deck</a>
+      <button class="btn-light" onclick="openModal()">Download Pitch Deck</button>
       <a href="mailto:investors@phrentech.com" class="btn-ghost">Contact Us</a>
     </div>
   </section>
@@ -362,6 +406,87 @@
   </ul>
   <div>© 2025 PhrenTech Inc.</div>
 </footer>
+
+<!-- LEAD CAPTURE MODAL -->
+<div class="modal-overlay" id="deckModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modalForm">
+      <div class="modal-eyebrow">Investor Relations</div>
+      <div class="modal-title">Download the Pitch Deck</div>
+      <div class="modal-sub">Enter your details and the PDF will download automatically.</div>
+      <form id="leadForm" action="https://formspree.io/f/xnjgornb" method="POST">
+        <div class="modal-field">
+          <label for="lead-name">Full Name *</label>
+          <input type="text" id="lead-name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="modal-field">
+          <label for="lead-company">Company / Fund *</label>
+          <input type="text" id="lead-company" name="company" placeholder="Acme Ventures" required />
+        </div>
+        <div class="modal-field">
+          <label for="lead-email">Email Address *</label>
+          <input type="email" id="lead-email" name="email" placeholder="jane@acmeventures.com" required />
+        </div>
+        <input type="hidden" name="_subject" value="Pitch Deck Download — PhrenTech" />
+        <input type="hidden" name="source" value="phrentech.com/pitch-deck" />
+        <button type="submit" class="modal-submit">Download Pitch Deck →</button>
+      </form>
+      <div class="modal-note">Your information is kept confidential and will only be used for investor communications.</div>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">✅</div>
+      <div class="modal-success-title">Your download is starting!</div>
+      <div class="modal-success-sub">Thank you. The PhrenTech pitch deck is downloading now.<br/>We'll be in touch at investors@phrentech.com.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('deckModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('deckModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('deckModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.modal-submit');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('modalForm').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('active');
+      const a = document.createElement('a');
+      a.href = 'PhrenTech-Pitch-Deck-v4.pdf';
+      a.download = 'PhrenTech-Pitch-Deck.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(closeModal, 4000);
+    } else {
+      btn.textContent = 'Download Pitch Deck →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email investors@phrentech.com directly.');
+    }
+  } catch {
+    btn.textContent = 'Download Pitch Deck →';
+    btn.disabled = false;
+    alert('Something went wrong. Please email investors@phrentech.com directly.');
+  }
+});
+</script>
 
 </body>
 </html>
