@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PhrenTech — Investor Relations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white:     #FFFFFF;
+    --off:       #F7F7F5;
+    --navy:      #0F1F3D;
+    --navy2:     #162847;
+    --navy3:     #1D3255;
+    --navy4:     #243C63;
+    --ink:       #0F1F3D;
+    --ink2:      #4A5A6A;
+    --ink3:      #8A9AAA;
+    --border:    rgba(15,31,61,0.1);
+    --border2:   rgba(15,31,61,0.16);
+    --nborder:   rgba(255,255,255,0.08);
+    --nborder2:  rgba(255,255,255,0.14);
+    --ntext:     #F0F4F8;
+    --ntext2:    rgba(240,244,248,0.55);
+    --ntext3:    rgba(240,244,248,0.3);
+    --grad:      linear-gradient(135deg, #E8834A 0%, #D04898 60%, #9B35C8 100%);
+    --grad-text: linear-gradient(90deg, #E8834A, #C040A0);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .grad-word {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── NAV (white) ── */
+  .pt-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 0.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+  }
+  .pt-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-wordmark {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 17px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .pt-nav-links { display: flex; gap: 28px; list-style: none; font-size: 13px; font-weight: 400; color: var(--ink3); }
+  .pt-nav-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .pt-nav-links a:hover { color: var(--ink); }
+  .pt-nav-cta {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    padding: 9px 22px;
+    background: var(--navy); color: var(--ntext);
+    border: none; border-radius: 100px;
+    cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+  }
+  .pt-nav-cta:hover { opacity: 0.88; }
+
+  /* ── HERO (navy) ── */
+  .pt-hero-zone { background: var(--navy); }
+  .pt-hero {
+    padding: 80px 48px 88px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .pt-eyebrow {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ntext3);
+    border: 0.5px solid var(--nborder2);
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
+  }
+  .pt-hero h1 { font-size: clamp(34px,3.8vw,54px); margin-bottom: 20px; color: var(--ntext); }
+  .pt-hero p { font-size: 16px; color: var(--ntext2); font-weight: 300; margin-bottom: 36px; line-height: 1.75; max-width: 640px; }
+  .pt-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-light {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    padding: 12px 28px;
+    background: var(--white); color: var(--navy);
+    border: none; border-radius: 100px;
+    cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+  }
+  .btn-light:hover { opacity: 0.9; }
+  .btn-ghost {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 400;
+    padding: 12px 28px;
+    background: transparent; color: var(--ntext2);
+    border: 0.5px solid var(--nborder2);
+    border-radius: 100px;
+    cursor: pointer; text-decoration: none; transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.35); color: var(--ntext); }
+
+  /* ── WHITE BODY ── */
+  .pt-body { background: var(--white); }
+
+  /* ── KEY METRICS STRIP (navy, 4 columns) ── */
+  .metrics-strip {
+    background: var(--navy);
+    padding: 36px 40px;
+    display: grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+  .metrics-item { padding: 0 28px; border-right: 0.5px solid var(--nborder); }
+  .metrics-item:first-child { padding-left: 0; }
+  .metrics-item:last-child { border-right: none; }
+  .metrics-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ntext3); margin-bottom: 6px; }
+  .metrics-val { font-size: 16px; font-weight: 700; color: var(--ntext); margin-bottom: 3px; letter-spacing: -0.02em; }
+  .metrics-sub { font-size: 12px; color: var(--ntext2); font-weight: 300; }
+
+  /* ── SECTIONS ── */
+  .pt-section { padding: 64px 48px; max-width: 1100px; margin: 0 auto; }
+  .pt-section-lbl { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 10px; }
+  .pt-section h2 { font-size: clamp(26px,3.2vw,40px); margin-bottom: 12px; color: var(--ink); }
+  .pt-section .sub { font-size: 15px; color: var(--ink2); max-width: 500px; margin-bottom: 40px; font-weight: 300; line-height: 1.75; }
+
+  /* ── PILLARS (light) ── */
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+  .pillar { background: var(--off); border-radius: 16px; padding: 26px; border: 0.5px solid var(--border); }
+  .pillar-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--white); border: 0.5px solid var(--border2); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .pillar-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--grad); }
+  .pillar h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; color: var(--ink); }
+  .pillar p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+  /* ── USE OF FUNDS (navy island) ── */
+  .funds-section {
+    margin: 0 48px;
+    border-radius: 24px;
+    background: var(--navy); padding: 56px 48px;
+    position: relative; overflow: hidden;
+  }
+  .funds-section-lbl { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ntext3); margin-bottom: 10px; }
+  .funds-section h2 { font-size: clamp(26px,3vw,38px); margin-bottom: 32px; color: var(--ntext); }
+  .funds-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+  .fund-card {
+    background: var(--navy2);
+    border-radius: 18px;
+    padding: 28px 24px;
+    border: 0.5px solid var(--nborder);
+  }
+  .fund-pct {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;
+    background: var(--grad-text);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .fund-title { font-size: 14px; font-weight: 600; color: var(--ntext); margin-bottom: 6px; }
+  .fund-desc { font-size: 12px; color: var(--ntext2); font-weight: 300; line-height: 1.5; }
+
+  /* ── TRACTION (navy) ── */
+  .traction-strip {
+    margin: 0 48px;
+    border-radius: 18px; background: var(--navy);
+    padding: 36px 40px;
+    display: grid; grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+  .traction-item { padding: 0 28px; border-right: 0.5px solid var(--nborder); }
+  .traction-item:first-child { padding-left: 0; }
+  .traction-item:last-child { border-right: none; }
+  .traction-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ntext3); margin-bottom: 6px; }
+  .traction-val { font-size: 16px; font-weight: 700; color: var(--ntext); margin-bottom: 3px; letter-spacing: -0.02em; }
+  .traction-sub { font-size: 12px; color: var(--ntext2); font-weight: 300; }
+
+  /* ── CONTACT CTA ── */
+  .cta-center { text-align: center; }
+  .btn-coral {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    padding: 14px 36px;
+    background: #E8834A; color: #fff;
+    border: none; border-radius: 100px;
+    cursor: pointer; text-decoration: none;
+    display: inline-block; transition: opacity 0.2s;
+  }
+  .btn-coral:hover { opacity: 0.88; }
+
+  /* ── FOOTER (navy) ── */
+  .pt-footer {
+    margin-top: 72px;
+    background: var(--navy);
+    padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--ntext3);
+  }
+  .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ntext); text-decoration: none; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--ntext2); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .pt-nav { padding: 14px 20px; }
+    .pt-nav-links { display: none; }
+    .pt-hero { padding: 48px 20px 56px; }
+    .metrics-strip { grid-template-columns: repeat(2,1fr); gap: 24px; padding: 28px 20px; }
+    .metrics-item { padding: 0; border-right: none; border-bottom: 0.5px solid var(--nborder); padding-bottom: 20px; }
+    .metrics-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pt-section { padding: 48px 20px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .funds-section { margin: 0 20px; padding: 36px 24px; }
+    .funds-grid { grid-template-columns: 1fr; }
+    .traction-strip { margin: 0 20px; grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+    .traction-item { padding: 0; border-right: none; border-bottom: 0.5px solid var(--nborder); padding-bottom: 20px; }
+    .traction-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pt-footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 20px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV — white -->
+<nav class="pt-nav">
+  <a href="/" class="pt-logo">
+    <svg width="28" height="22" viewBox="0 0 52 42" fill="none">
+      <circle cx="26" cy="8" r="4" fill="#E8834A"/>
+      <circle cx="38" cy="14" r="3" fill="#D060A0"/>
+      <circle cx="14" cy="14" r="2.5" fill="#E85A5A"/>
+      <circle cx="42" cy="26" r="3.5" fill="#C848B8"/>
+      <circle cx="10" cy="26" r="2" fill="#E07060"/>
+      <circle cx="32" cy="28" r="5" fill="#C040B0"/>
+      <circle cx="20" cy="32" r="3" fill="#D05090"/>
+      <circle cx="26" cy="22" r="3.5" fill="#B83098"/>
+      <line x1="26" y1="8" x2="38" y2="14" stroke="url(#g1)" stroke-width="1.3"/>
+      <line x1="26" y1="8" x2="14" y2="14" stroke="url(#g1)" stroke-width="1.3"/>
+      <line x1="26" y1="8" x2="26" y2="22" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="38" y1="14" x2="42" y2="26" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="38" y1="14" x2="26" y2="22" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="14" y1="14" x2="10" y2="26" stroke="url(#g1)" stroke-width="1.3"/>
+      <line x1="14" y1="14" x2="26" y2="22" stroke="url(#g1)" stroke-width="1.3"/>
+      <line x1="42" y1="26" x2="32" y2="28" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="10" y1="26" x2="20" y2="32" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="26" y1="22" x2="32" y2="28" stroke="url(#g2)" stroke-width="1.3"/>
+      <line x1="26" y1="22" x2="20" y2="32" stroke="url(#g2)" stroke-width="1.3"/>
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="52" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#E8834A"/><stop offset="100%" stop-color="#C040A0"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="52" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#D060A0"/><stop offset="100%" stop-color="#9B35C8"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="logo-wordmark">PHRENTECH</span>
+  </a>
+  <ul class="pt-nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/#products">Products</a></li>
+    <li><a href="/#vr-platform">VR Platform</a></li>
+    <li><a href="/pitch-deck" style="color: var(--ink)">Investors</a></li>
+  </ul>
+  <a href="https://phrenly.com" class="pt-nav-cta">Get early access</a>
+</nav>
+
+<!-- HERO — navy -->
+<div class="pt-hero-zone">
+  <section class="pt-hero">
+    <div class="pt-eyebrow">Investor Relations</div>
+    <h1>Investing in the future of mental healthcare.</h1>
+    <p>PhrenTech is seeking $500K in seed funding to scale Phrenly and build the next generation of VR therapy. We are building the infrastructure for accessible, evidence-based mental health support — starting with AI, evolving into immersive VR.</p>
+    <div class="pt-hero-btns">
+      <a href="#deck" class="btn-light">Download Pitch Deck</a>
+      <a href="mailto:investors@phrentech.com" class="btn-ghost">Contact Us</a>
+    </div>
+  </section>
+</div>
+
+<!-- KEY METRICS STRIP — navy, 4 columns -->
+<div class="metrics-strip">
+  <div class="metrics-item"><div class="metrics-label">Seeking</div><div class="metrics-val">$500K</div><div class="metrics-sub">Seed round</div></div>
+  <div class="metrics-item"><div class="metrics-label">Market</div><div class="metrics-val">$507B</div><div class="metrics-sub">Global mental health market (2026)</div></div>
+  <div class="metrics-item"><div class="metrics-label">Runway</div><div class="metrics-val">18 months</div><div class="metrics-sub">To Series A readiness</div></div>
+  <div class="metrics-item"><div class="metrics-label">Target ROI</div><div class="metrics-val">15x</div><div class="metrics-sub">Projected return at Series A</div></div>
+</div>
+
+<!-- WHITE BODY -->
+<div class="pt-body">
+
+  <!-- THE OPPORTUNITY -->
+  <section class="pt-section">
+    <div class="pt-section-lbl">Why Now</div>
+    <h2>A $507B market that technology hasn't reached yet.</h2>
+    <p class="sub">The mental health crisis is at its peak. AI therapy is emerging. VR is maturing. The convergence creates a rare window — and PhrenTech is positioned to lead it.</p>
+    <div class="pillars-grid">
+      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>Perfect Timing</h3><p>Mental health crisis at peak demand, AI therapy market emerging, VR reaching clinical maturity.</p></div>
+      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>Bridge Strategy</h3><p>Phrenly generates immediate revenue today while funding development of the higher-value VR platform.</p></div>
+      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>Unique Position</h3><p>The only platform combining evidence-based AI wellness with clinical-grade VR therapy under one roof.</p></div>
+    </div>
+  </section>
+
+  <!-- USE OF FUNDS — navy island -->
+  <div class="funds-section">
+    <div class="funds-section-lbl">Use of Funds</div>
+    <h2>$500K Seed Round — 18-month runway</h2>
+    <div class="funds-grid">
+      <div class="fund-card"><div class="fund-pct">60%</div><div class="fund-title">Product Development</div><div class="fund-desc">AI model refinement, clinical validation, and VR platform foundation</div></div>
+      <div class="fund-card"><div class="fund-pct">25%</div><div class="fund-title">Team Expansion</div><div class="fund-desc">Key engineering and clinical expertise hires</div></div>
+      <div class="fund-card"><div class="fund-pct">15%</div><div class="fund-title">Marketing</div><div class="fund-desc">User acquisition and partnership development</div></div>
+    </div>
+  </div>
+
+  <!-- TRACTION — navy -->
+  <div class="traction-strip">
+    <div class="traction-item"><div class="traction-label">Incorporated</div><div class="traction-val">Delaware C-Corp</div><div class="traction-sub">Investor-ready legal structure</div></div>
+    <div class="traction-item"><div class="traction-label">Validated</div><div class="traction-val">Collision 2024</div><div class="traction-sub">Selected for startup Impact showcase</div></div>
+    <div class="traction-item"><div class="traction-label">Clinical</div><div class="traction-val">3 Advisors</div><div class="traction-sub">Licensed psychologists on clinical board</div></div>
+  </div>
+
+  <!-- CONTACT CTA -->
+  <section class="pt-section cta-center">
+    <h2>Ready to learn more?</h2>
+    <p class="sub" style="max-width: 500px; margin-left: auto; margin-right: auto;">We'd love to walk you through the full pitch deck and answer any questions.</p>
+    <a href="mailto:investors@phrentech.com" class="btn-coral">Contact Investor Relations</a>
+  </section>
+
+</div>
+
+<!-- FOOTER — navy -->
+<footer class="pt-footer">
+  <a href="/" class="footer-logo">PHRENTECH</a>
+  <ul class="footer-links">
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/terms-and-conditions">Terms</a></li>
+    <li><a href="/pitch-deck">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div>© 2025 PhrenTech Inc.</div>
+</footer>
+
+</body>
+</html>
