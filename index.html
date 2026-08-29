@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PhrenTech — Revolutionizing Mental Healthcare</title>
+<title>PhrenTech — Mental health support that reaches people</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -335,11 +335,42 @@
     .pt-footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 20px; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
   }
+
+/* ── MISSION HOMEPAGE ── */
+.mission-hero { max-width: 1100px; margin: 0 auto; padding: 96px 48px 104px; }
+.mission-hero h1 { font-size: clamp(34px,5vw,58px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; color: #fff; margin: 0 0 22px; max-width: 840px; }
+.mission-hero p { font-size: 17px; color: var(--ntext2); font-weight: 300; line-height: 1.75; max-width: 620px; margin-bottom: 34px; }
+.path-h2 { font-size: clamp(24px,3vw,36px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin: 0 0 32px; }
+.mission-quote { font-size: clamp(21px,2.5vw,29px); font-weight: 300; line-height: 1.5; color: var(--ink); max-width: 780px; letter-spacing: -0.02em; margin: 6px 0 40px; }
+.mission-quote strong { font-weight: 700; }
+.need-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.need-item { padding-top: 20px; border-top: 0.5px solid var(--border); }
+.need-num { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+.need-lbl { font-size: 13px; color: var(--ink2); font-weight: 300; line-height: 1.65; }
+.safety-note { margin-top: 36px; font-size: 12.5px; color: var(--ink3); font-weight: 300; line-height: 1.75; max-width: 680px; }
+.path-card { display: block; text-decoration: none; background: var(--off); border-radius: 16px; padding: 28px; border: 0.5px solid var(--border); transition: all 0.2s; }
+.path-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.path-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.path-card p { font-size: 13.5px; color: var(--ink2); font-weight: 300; line-height: 1.7; margin: 0 0 16px; }
+.path-go { font-size: 13px; font-weight: 600; color: var(--ink); }
+.build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.build-card { background: var(--off); border: 0.5px solid var(--border); border-radius: 16px; padding: 30px; }
+.build-card h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 10px; }
+.build-card p { font-size: 14px; color: var(--ink2); font-weight: 300; line-height: 1.75; margin: 0 0 16px; }
+.build-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: var(--navy); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+.build-badge-soon { background: transparent; color: var(--ink3); border: 0.5px solid var(--border2); }
+@media (max-width: 768px) {
+.mission-hero { padding: 64px 20px 72px; }
+.pt-section { padding: 48px 20px; }
+.need-grid, .build-grid, .pillars-grid { grid-template-columns: 1fr; }
+.pt-footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+}
+
 </style>
 </head>
 <body>
 
-<!-- NAV — white -->
+<!-- NAV -->
 <nav class="pt-nav">
   <a href="/" class="pt-logo">
     <svg width="28" height="22" viewBox="0 0 52 42" fill="none">
@@ -374,141 +405,88 @@
     <span class="logo-wordmark">PHRENTECH</span>
   </a>
   <ul class="pt-nav-links">
+    <li><a href="#mission">Our mission</a></li>
+    <li><a href="#products">What we build</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#vr-platform">VR Platform</a></li>
-    <li><a href="/pitch-deck">Investors</a></li>
   </ul>
-  <a href="https://phrenly.com" class="pt-nav-cta">Get early access</a>
+  <a href="https://phrenly.com" class="pt-nav-cta">Meet Phrenly</a>
 </nav>
 
-<!-- HERO — navy -->
+<!-- HERO -->
 <div class="pt-hero-zone">
-  <section class="pt-hero">
-    <div class="pt-hero-copy">
-      <div class="pt-eyebrow">AI + VR mental health tech</div>
-      <h1>Democratizing access to <span class="grad-word">quality</span> mental healthcare</h1>
-      <p>PhrenTech builds the infrastructure for next-generation mental health support — starting with AI, evolving into VR. Accessible, evidence-based, and built for scale.</p>
-      <div class="pt-hero-btns">
-        <a href="https://phrenly.com" class="btn-light">Meet Phrenly</a>
-        <a href="/pitch-deck" class="btn-ghost">View pitch deck</a>
-      </div>
+  <div class="mission-hero">
+    <span class="pt-eyebrow">PhrenTech</span>
+    <h1>Everyone deserves <span class="grad-word">someone to talk to</span>.</h1>
+    <p>We build mental health technology for the moments between appointments &mdash; and for the millions of people who never get one. Evidence-based, available today, and designed to support care rather than replace it.</p>
+    <div class="pt-hero-btns">
+      <a href="https://phrenly.com" class="btn-light">Meet Phrenly</a>
+      <a href="#mission" class="btn-ghost">Why we exist</a>
     </div>
-    <div class="pt-hero-vis">
-      <div class="vr-ring"></div>
-      <div class="vr-graphic">
-        <div class="vr-headset">
-          <div class="vr-band-l"></div>
-          <div class="vr-lenses"><div class="vr-lens"></div><div class="vr-lens"></div></div>
-          <div class="vr-band-r"></div>
-        </div>
-        <div class="vr-label">VR Platform — 2026</div>
-      </div>
-      <div class="hero-badge"><strong>Phrenly</strong>AI wellness partner, live now</div>
-      <div class="hero-badge2"><strong>$507B</strong>global market opportunity</div>
-    </div>
-  </section>
+  </div>
 </div>
 
-<!-- WHITE BODY -->
-<div class="pt-body">
-
-  <!-- STATS — individual navy cards -->
-  <div class="pt-stats">
-    <div class="stat-card"><div class="stat-num">1B+</div><div class="stat-lbl">people affected globally</div></div>
-    <div class="stat-card"><div class="stat-num">80%</div><div class="stat-lbl">cost reduction vs traditional therapy</div></div>
-    <div class="stat-card"><div class="stat-num">40%</div><div class="stat-lbl">of those affected receive no treatment</div></div>
-    <div class="stat-card"><div class="stat-num">6–8 wks</div><div class="stat-lbl">avg wait to see a provider</div></div>
+<!-- MISSION -->
+<section class="pt-section" id="mission">
+  <div class="pt-section-lbl">Why we exist</div>
+  <p class="mission-quote">Support shouldn&rsquo;t depend on <strong>where you live, what you earn, or how long you can wait</strong>. Most people who need help never receive it &mdash; not because care doesn&rsquo;t work, but because they can&rsquo;t reach it.</p>
+  <div class="need-grid">
+    <div class="need-item"><div class="need-num">40%</div><div class="need-lbl">of people affected receive no treatment at all</div></div>
+    <div class="need-item"><div class="need-num">6&ndash;8 wks</div><div class="need-lbl">average wait to first see a provider</div></div>
+    <div class="need-item"><div class="need-num">2am</div><div class="need-lbl">when the hardest moments tend to arrive</div></div>
   </div>
+  <p class="safety-note">PhrenTech builds wellness technology, not medical treatment. Our products are designed to support people alongside professional care &mdash; never to replace it. If you are in crisis, call or text 988 in the US, or contact your local emergency services.</p>
+</section>
 
-  <!-- PHRENLY -->
-  <section class="pt-section" id="products">
-    <div class="pt-section-lbl">Phase 1 — now available</div>
-    <h2>Meet Phrenly</h2>
-    <p class="sub">Your AI wellness partner, built on CBT, DBT, and ACT frameworks. Available 24/7, no waitlist, no barriers.</p>
-    <div class="phrenly-card">
-      <div>
-        <div class="p-launch-badge"><div class="pulse-dot"></div> Now launching</div>
-        <h2>An AI partner that actually listens</h2>
-        <p class="card-body">Phrenly uses evidence-based therapeutic frameworks to deliver personalized wellness support — anytime, from any device. Built with clinical guardrails and crisis detection from day one.</p>
-        <div class="feature-pills">
-          <span class="pill">CBT · DBT · ACT</span>
-          <span class="pill">Crisis detection</span>
-          <span class="pill">Mood tracking</span>
-          <span class="pill">Clinician-ready</span>
-          <span class="pill">Privacy first</span>
-          <span class="pill">24/7 support</span>
-        </div>
-        <a href="https://phrenly.com" class="btn-light">Get early access to Phrenly</a>
-      </div>
-      <div class="phrenly-vis">
-        <div class="phone-top">
-          <div class="p-avatar">P</div>
-          <div><div class="p-name">Phrenly</div><div class="p-sub">Your wellness partner</div></div>
-        </div>
-        <div class="phone-msgs">
-          <div class="msg msg-ai">How are you feeling today? Let's check in together.</div>
-          <div class="msg msg-user">Anxious. Big presentation today.</div>
-          <div class="msg msg-ai">That's completely valid. Let's try a quick grounding exercise before you go in.</div>
-          <div class="msg msg-user">That would really help, thank you.</div>
-        </div>
-      </div>
+<!-- PATHS -->
+<section class="pt-section">
+  <div class="pt-section-lbl">Where to go from here</div>
+  <h2 class="path-h2">Three ways in</h2>
+  <div class="pillars-grid">
+    <a class="path-card" href="https://phrenly.com">
+      <h3>I need support</h3>
+      <p>Phrenly is our AI wellness partner &mdash; grounded in CBT, DBT and ACT, with crisis awareness built in. Free to start. No referral, no waitlist.</p>
+      <span class="path-go">Meet Phrenly &rarr;</span>
+    </a>
+    <a class="path-card" href="/about">
+      <h3>I&rsquo;m a clinician</h3>
+      <p>We build tools that support mental health professionals rather than replace them. Licensed psychologists sit on our clinical advisory board and shape what we ship.</p>
+      <span class="path-go">Our approach &rarr;</span>
+    </a>
+    <a class="path-card" href="/investors">
+      <h3>I&rsquo;m an investor</h3>
+      <p>The opportunity, our traction so far, and the roadmap from AI wellness today to immersive VR therapy.</p>
+      <span class="path-go">Investor overview &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section class="pt-section" id="products">
+  <div class="pt-section-lbl">What we build</div>
+  <h2 class="path-h2">Two products. One mission.</h2>
+  <div class="build-grid">
+    <div class="build-card">
+      <div class="build-badge">Live now</div>
+      <h3>Phrenly</h3>
+      <p>An AI wellness partner you can talk to by text or out loud. Guided exercises drawn from CBT, DBT and ACT, mood tracking, and crisis detection from day one. Available on iPhone, iPad and the web.</p>
+      <a href="https://phrenly.com" class="path-go">phrenly.com &rarr;</a>
     </div>
-  </section>
-
-  <!-- VR — navy island -->
-  <div class="vr-section" id="vr-platform">
-    <div class="vr-deco"></div><div class="vr-deco2"></div>
-    <div class="vr-inner">
-      <div>
-        <div class="vr-eyebrow"><div class="hourglass"></div> Phase 2 — coming 2026</div>
-        <h2>The future of therapy is <span class="grad-word">immersive</span></h2>
-        <p class="vr-intro">The PhrenTech VR Platform brings immersive therapeutic environments, biofeedback integration, and your AI wellness partner into a single clinical-grade experience. Beta launch projected for 2026.</p>
-        <div class="vr-stats">
-          <div class="vr-stat"><div class="vr-stat-num">66–73%</div><div class="vr-stat-lbl">PTSD success rate in clinical VR studies</div></div>
-          <div class="vr-stat"><div class="vr-stat-num">40%</div><div class="vr-stat-lbl">higher patient engagement vs traditional</div></div>
-          <div class="vr-stat"><div class="vr-stat-num">30%</div><div class="vr-stat-lbl">lower treatment dropout rates</div></div>
-        </div>
-        <a href="https://phrenly.com" class="vr-cta">Get early access</a>
-      </div>
-      <div class="vr-features">
-        <div class="vr-feat"><h4>Immersive therapeutic environments</h4><p>Customizable spaces — serene nature settings, graduated exposure scenarios — tailored to different therapy modalities.</p></div>
-        <div class="vr-feat"><h4>Enhanced exposure therapy</h4><p>Controlled, precise exposure to anxiety triggers with real-time biofeedback and AI partner guidance for phobias and PTSD.</p></div>
-        <div class="vr-feat"><h4>AI partner inside VR</h4><p>Phrenly lives inside the VR environment — providing evidence-based guidance and support in real time, within the experience.</p></div>
-        <div class="vr-feat"><h4>Clinical dashboard</h4><p>Comprehensive analytics for providers to monitor progress and integrate VR therapy with traditional care.</p></div>
-      </div>
+    <div class="build-card">
+      <div class="build-badge build-badge-soon">In development</div>
+      <h3>VR therapy platform</h3>
+      <p>Immersive therapeutic environments with biofeedback and clinician tools &mdash; built for exposure work, and for people whose mobility, geography or stigma keeps them from a clinic.</p>
+      <span class="path-go" style="color:var(--ink3);">Beta projected 2026</span>
     </div>
   </div>
+</section>
 
-  <!-- PILLARS — light -->
-  <section class="pt-section">
-    <div class="pt-section-lbl">Our approach</div>
-    <h2>Two products. One mission.</h2>
-    <p class="sub">We bridge today's AI capabilities with tomorrow's VR therapy — building immediate revenue while developing what's next.</p>
-    <div class="pillars-grid">
-      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>AI wellness partners</h3><p>Evidence-based conversational tools trained on CBT, DBT, and ACT — available now via Phrenly.</p></div>
-      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>VR therapy platform</h3><p>Immersive clinical environments removing barriers for those with mobility, geography, or stigma challenges.</p></div>
-      <div class="pillar"><div class="pillar-icon"><div class="pillar-dot"></div></div><h3>Clinician infrastructure</h3><p>Tools designed to support mental health professionals — not replace them. Built for clinical partnership.</p></div>
-    </div>
-  </section>
-
-  <!-- TRACTION — navy -->
-  <div class="traction-strip">
-    <div class="traction-item"><div class="traction-label">Traction</div><div class="traction-val">Delaware C-Corp</div><div class="traction-sub">Incorporated and investor-ready</div></div>
-    <div class="traction-item"><div class="traction-label">Validated</div><div class="traction-val">Collision 2024</div><div class="traction-sub">Selected for startup Impact showcase</div></div>
-    <div class="traction-item"><div class="traction-label">Clinical</div><div class="traction-val">3 pilot advisors</div><div class="traction-sub">Licensed psychologists on clinical board</div></div>
-  </div>
-
-</div>
-
-<!-- FOOTER — navy -->
 <footer class="pt-footer">
   <a href="/" class="footer-logo">PHRENTECH</a>
   <ul class="footer-links">
     <li><a href="/privacy">Privacy Policy</a></li>
     <li><a href="/terms">Terms</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/pitch-deck">Investors</a></li>
+    <li><a href="/investors">Investors</a></li>
   </ul>
   <div>© 2026 PhrenTech Inc.</div>
 </footer>
