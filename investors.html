@@ -200,6 +200,8 @@
     background-clip: text;
   }
   .stat-lbl { font-size: 12px; color: var(--ntext2); font-weight: 300; line-height: 1.5; }
+  .stat-cite { font-size: 10px; color: var(--ntext2); opacity: 0.5; font-weight: 300; line-height: 1.4; margin-top: 9px; }
+  .stat-cite a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
   /* ── SECTIONS ── */
   .pt-section { padding: 64px 48px; max-width: 1100px; margin: 0 auto; }
@@ -263,13 +265,15 @@
   .hourglass { width: 7px; height: 7px; border-radius: 1px; background: var(--ntext3); }
   .vr-section h2 { font-size: clamp(26px,3vw,38px); margin-bottom: 14px; color: var(--ntext); }
   .vr-intro { font-size: 14px; color: var(--ntext2); font-weight: 300; line-height: 1.75; margin-bottom: 28px; }
-  .vr-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 32px; }
+  .vr-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 32px; }
   .vr-stat { background: var(--navy2); border: 0.5px solid var(--nborder); border-radius: 14px; padding: 18px 14px; text-align: center; }
   .vr-stat-num {
     font-size: 20px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 5px;
     background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .vr-stat-lbl { font-size: 10px; color: var(--ntext2); font-weight: 300; line-height: 1.45; }
+  .vr-stat-cite { font-size: 9px; color: var(--ntext2); opacity: 0.5; font-weight: 300; line-height: 1.35; margin-top: 7px; }
+  .vr-stat-cite a { color: inherit; text-decoration: underline; }
   .vr-cta {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px; font-weight: 600; padding: 12px 28px;
@@ -405,7 +409,7 @@
         <div class="vr-label">VR Platform — 2026</div>
       </div>
       <div class="hero-badge"><strong>Phrenly</strong>AI wellness partner, live now</div>
-      <div class="hero-badge2"><strong>$507B</strong>global market opportunity</div>
+      <div class="hero-badge2"><strong>$507B</strong>global market opportunity<a href="https://www.towardshealthcare.com/insights/mental-health-market-sizing" target="_blank" rel="noopener" style="display:block;opacity:0.5;font-size:9px;margin-top:3px;color:inherit;text-decoration:underline;">Towards Healthcare, 2026</a></div>
     </div>
   </section>
 </div>
@@ -415,10 +419,10 @@
 
   <!-- STATS — individual navy cards -->
   <div class="pt-stats">
-    <div class="stat-card"><div class="stat-num">1B+</div><div class="stat-lbl">people affected globally</div></div>
-    <div class="stat-card"><div class="stat-num">80%</div><div class="stat-lbl">cost reduction vs traditional therapy</div></div>
-    <div class="stat-card"><div class="stat-num">40%</div><div class="stat-lbl">of those affected receive no treatment</div></div>
-    <div class="stat-card"><div class="stat-num">6–8 wks</div><div class="stat-lbl">avg wait to see a provider</div></div>
+    <div class="stat-card"><div class="stat-num">1B+</div><div class="stat-lbl">people affected globally</div><div class="stat-cite">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" rel="noopener">WHO, 2025</a></div></div>
+    <div class="stat-card"><div class="stat-num">&lt;$10<span style="font-size:0.5em;font-weight:500;">/mo</span></div><div class="stat-lbl">Phrenly Plus, vs $100–250 per therapy session in the US</div><div class="stat-cite">Session cost: <a href="https://app.projecthealthyminds.com/mental-health-blog/how-much-does-therapy-cost" target="_blank" rel="noopener">Project Healthy Minds, 2025</a></div></div>
+    <div class="stat-card"><div class="stat-num">50%+</div><div class="stat-lbl">of those affected receive no treatment</div><div class="stat-cite">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/mental-disorders" target="_blank" rel="noopener">WHO, 2025</a> (75%+ in low-income countries)</div></div>
+    <div class="stat-card"><div class="stat-num">6–8 wks</div><div class="stat-lbl">typical wait to see a provider</div><div class="stat-cite">Source: <a href="https://www.npr.org/sections/health-shots/2021/11/18/1053566020/americans-can-wait-many-weeks-to-see-a-therapist-california-law-aims-to-fix-that" target="_blank" rel="noopener">NPR, 2021</a></div></div>
   </div>
 
   <!-- PHRENLY -->
@@ -465,9 +469,8 @@
         <h2>The future of therapy is <span class="grad-word">immersive</span></h2>
         <p class="vr-intro">The PhrenTech VR Platform brings immersive therapeutic environments, biofeedback integration, and your AI wellness partner into a single clinical-grade experience. Beta launch projected for 2026.</p>
         <div class="vr-stats">
-          <div class="vr-stat"><div class="vr-stat-num">66–73%</div><div class="vr-stat-lbl">PTSD success rate in clinical VR studies</div></div>
-          <div class="vr-stat"><div class="vr-stat-num">40%</div><div class="vr-stat-lbl">higher patient engagement vs traditional</div></div>
-          <div class="vr-stat"><div class="vr-stat-num">30%</div><div class="vr-stat-lbl">lower treatment dropout rates</div></div>
+          <div class="vr-stat"><div class="vr-stat-num">~66%</div><div class="vr-stat-lbl">no longer met PTSD criteria after a VR-augmented exposure therapy program</div><div class="vr-stat-cite">Source: <a href="https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2024.1336523/full" target="_blank" rel="noopener">Beidel et al., 2017/2019</a></div></div>
+          <div class="vr-stat"><div class="vr-stat-num">98%</div><div class="vr-stat-lbl">of participants completed the VR-augmented exposure therapy program (2% dropout)</div><div class="vr-stat-cite">Source: <a href="https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2024.1336523/full" target="_blank" rel="noopener">Beidel et al., 2017/2019</a></div></div>
         </div>
         <a href="https://phrenly.com" class="vr-cta">Get early access</a>
       </div>
