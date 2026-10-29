@@ -374,6 +374,13 @@
 .build-card p { font-size: 14px; color: var(--ink2); font-weight: 300; line-height: 1.75; margin: 0 0 16px; }
 .build-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: var(--navy); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
 .build-badge-soon { background: transparent; color: var(--ink3); border: 0.5px solid var(--border2); }
+.vr-bar { display: block; background: #0A1630; color: #E6ECF7; text-align: center; font-size: 13px; padding: 10px 16px; text-decoration: none; line-height: 1.4; font-family: 'Plus Jakarta Sans', sans-serif; }
+.vr-bar strong { color: #F0A070; }
+.vr-bar span { text-decoration: underline; text-underline-offset: 3px; }
+.build-card-vr { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.build-card-vr img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.build-card-vr .build-body { padding: 26px 30px 30px; }
+.build-card-vr .path-go { margin-right: 18px; }
 .pillars-grid { grid-template-columns: repeat(auto-fit,minmax(228px,1fr)); }
 @media (max-width: 768px) {
 .mission-hero { padding: 64px 20px 72px; }
@@ -401,6 +408,7 @@
 <body>
 
 <!-- NAV -->
+<a class="vr-bar" href="https://phrenly.com/vr"><strong>New · Phrenly VR</strong> &nbsp;Our flagship: therapy in a calm virtual space. The pilot is open. <span>Take a look →</span></a>
 <nav class="pt-nav">
   <a href="/" class="pt-logo">
     <svg width="28" height="22" viewBox="0 0 52 42" fill="none">
@@ -437,6 +445,7 @@
   <ul class="pt-nav-links">
     <li><a href="#mission">Our mission</a></li>
     <li><a href="#products">What we build</a></li>
+    <li><a href="https://phrenly.com/vr">Phrenly VR</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="mailto:hello@phrentech.com">Contact</a></li>
   </ul>
@@ -451,6 +460,7 @@
     <p>We build mental health technology for the moments between appointments &mdash; and for the millions of people who never get one. Evidence-based, available today, and designed to support care rather than replace it.</p>
     <div class="pt-hero-btns">
       <a href="https://phrenly.com" class="btn-light">Meet Phrenly</a>
+      <a href="https://phrenly.com/vr" class="btn-ghost">Explore Phrenly VR</a>
       <a href="#mission" class="btn-ghost">Why we exist</a>
     </div>
   </div>
@@ -478,10 +488,10 @@
       <p>Phrenly is our AI wellness partner &mdash; grounded in CBT, DBT and ACT, with crisis awareness built in. Free to start. No referral, no waitlist.</p>
       <span class="path-go">Meet Phrenly &rarr;</span>
     </a>
-    <a class="path-card" href="/about">
+    <a class="path-card" href="https://phrenly.com/vr#pilot">
       <h3>I&rsquo;m a clinician</h3>
-      <p>We build tools that support mental health professionals rather than replace them. Licensed psychologists sit on our clinical advisory board and shape what we ship.</p>
-      <span class="path-go">Our approach &rarr;</span>
+      <p>Meet your clients in Phrenly VR: a calm virtual waiting room and therapy space, over secure video. Bring your own clients. 60 days free in the pilot.</p>
+      <span class="path-go">Join the Phrenly VR pilot &rarr;</span>
     </a>
     <a class="path-card" href="https://phrenly.com/universities">
       <h3>I&rsquo;m at a university</h3>
@@ -507,11 +517,15 @@
       <p>An AI wellness partner you can talk to by text or out loud. Guided exercises drawn from CBT, DBT and ACT, mood tracking, and crisis detection from day one. Available on iPhone, iPad and the web.</p>
       <a href="https://phrenly.com" class="path-go">phrenly.com &rarr;</a>
     </div>
-    <div class="build-card">
-      <div class="build-badge build-badge-soon">In development</div>
-      <h3>VR therapy platform</h3>
-      <p>Immersive therapeutic environments with biofeedback and clinician tools &mdash; built for exposure work, and for people whose mobility, geography or stigma keeps them from a clinic.</p>
-      <span class="path-go" style="color:var(--ink3);">Beta projected 2026</span>
+    <div class="build-card build-card-vr">
+      <img src="/phrenly-vr.jpg" alt="The Phrenly VR waiting room, with Aria at the reception desk" loading="lazy"/>
+      <div class="build-body">
+        <div class="build-badge">Pilot open</div>
+        <h3>Phrenly VR</h3>
+        <p>A virtual waiting room and therapy space. Check in with Aria, breathe on a quiet beach while you wait, then meet your therapist by secure video in the place you choose: a beach, a forest, a zen garden or a cozy office. In a headset, on a laptop or on your phone.</p>
+        <a href="https://phrenly.com/vr" class="path-go">Look around in 360&deg; &rarr;</a>
+        <a href="https://phrenly.com/vr#pilot" class="path-go">Join the pilot &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
