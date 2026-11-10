@@ -389,6 +389,15 @@
 .pt-footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
 }
 
+.grant-card { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center; background: var(--off); border: 0.5px solid var(--border); border-radius: 20px; padding: 28px; }
+.grant-card img { width: 100%; height: auto; border-radius: 12px; display: block; border: 0.5px solid var(--border); }
+.grant-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 10px; }
+.grant-card p { font-size: 14px; color: var(--ink2); font-weight: 300; line-height: 1.75; margin: 0 0 16px; max-width: 560px; }
+@media (max-width: 768px) {
+.grant-card { grid-template-columns: 1fr; gap: 22px; padding: 22px; }
+.grant-card img { max-width: 260px; }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -400,6 +409,7 @@
   "logo": "https://phrentech.com/favicon.svg",
   "email": "hello@phrentech.com",
   "foundingDate": "2024",
+  "award": "ElevenLabs Startup Grant (2026)",
   "description": "PhrenTech builds clinically-grounded mental health technology, including the Phrenly AI wellness partner and a VR therapy platform.",
   "telephone": "+1-850-772-3662",
   "address": { "@type": "PostalAddress", "streetAddress": "7901 4th St N #29733", "addressLocality": "St. Petersburg", "addressRegion": "FL", "postalCode": "33702", "addressCountry": "US" }
@@ -527,6 +537,20 @@
         <a href="https://phrenly.com/vr" class="path-go">Look around in 360&deg; &rarr;</a>
         <a href="https://phrenly.com/vr#pilot" class="path-go">Join the waitlist &rarr;</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="pt-section" id="recognition">
+  <div class="pt-section-lbl">Recognition</div>
+  <div class="grant-card">
+    <a href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener"><img src="/elevenlabs-grant.webp" alt="ElevenLabs Startup Grant Recipient, awarded to PhrenTech" width="720" height="900" loading="lazy"/></a>
+    <div>
+      <div class="build-badge">November 2026</div>
+      <h3>ElevenLabs Startup Grant recipient</h3>
+      <p>PhrenTech has been awarded an ElevenLabs Startup Grant. It gives our team a year of access to ElevenLabs&rsquo; AI audio platform as we keep building Phrenly and Phrenly VR, tools that support people in the moment and work alongside the professionals in their corner.</p>
+      <a href="https://elevenlabs.io/startup-grants" class="path-go" target="_blank" rel="noopener">About ElevenLabs Grants &rarr;</a>
     </div>
   </div>
 </section>
